@@ -38,10 +38,10 @@ export default function Page() {
           基于 {<TailwindCSSLink />} 的快速，简洁，美观的 {<ReactLink />} UI库
         </p>
         <p className="text-lg">支持 {<NextJsLink />} 13</p>
-        <Link href="/avatar" className="mr-2">
+        <Link href="/installation" className="mr-2">
           <Button type="primary" size="xl">开始</Button>
         </Link>
-        <Link href="/avatar">
+        <Link href="/components/avatar">
           <Button size="xl">浏览组件</Button>
         </Link>
       </div>
