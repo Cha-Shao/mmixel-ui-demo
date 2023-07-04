@@ -3,6 +3,7 @@
 做这个只是因为我不知道什么大小应该用h几
 
 import Title from "../../components/Title"
+import BigTitle from "../../components/BigTitle"
 
 ### 大小
 
@@ -30,8 +31,46 @@ export default function App() {
 }
 ```
 
+### 超级标题
+
+为什么是这样的名字
+
+<br/>
+
+<BigTitle title={["头号", "玩家"]} />
+
+<div className="my-24" />
+
+<BigTitle
+  title={["假面", "骑士"]}
+  titleColor={["#ff479f","#92f60f"]}
+  blurColor={["#83e701", "#ff479f"]}/>
+
+```tsx copy
+import { Title } from "mmixel-ui"
+
+export default function App() {
+  return (<>
+    <BigTitle title={["头号", "玩家"]} />
+    <div className="my-24" />
+    <BigTitle
+      title={["假面", "骑士"]}
+      titleColor={["#ff479f","#92f60f"]}
+      blurColor={["#83e701", "#ff479f"]}/>
+  </>)
+}
+```  
+
 ### Title Props
 
 | Prop | Type                                   | Default | Desc       |
 | :--- | :------------------------------------- | :------ | :--------- |
 | size | `"ty" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"`  | 标题的大小 |
+
+### BigTitle Props
+
+| Prop       | Type               | Default                  | Desc         |
+| :--------- | :----------------- | :----------------------- | :----------- |
+| title      | `[string, string]` | `[undefined, undefined]` | 标题内容     |
+| titleColor | `[string, string]` | `[undefined, undefined]` | 标题颜色     |
+| blurColor  | `[string, string]` | `[undefined, undefined]` | 背景模糊颜色 |
