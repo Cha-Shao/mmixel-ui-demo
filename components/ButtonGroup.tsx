@@ -15,6 +15,7 @@ const ButtonGroup = forwardRef(function ButtonGroup(
   return (
     <div ref={ref}
       className={classNames(
+        props.className,
         "inline-flex",
         { "flex-col": direction === "ver" },
       )}>

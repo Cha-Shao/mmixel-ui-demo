@@ -2,11 +2,13 @@
 
 这是什么？点一下
 
-import Button from '../../components/Button'
+import Button  from "../../components/Button"
 
 ### 常规
 
 使用 `size` 调整按钮大小
+
+<br/>
 
 <Button size="ty">小小</Button>
 <Button size="sm">小</Button>
@@ -14,8 +16,8 @@ import Button from '../../components/Button'
 <Button size="lg">大</Button>
 <Button size="xl">大大</Button>
 
-```js copy
-import Button from "mmixel-ui"
+```tsx copy
+import { Button } from "mmixel-ui"
 
 export default function App() {
   return (
@@ -32,12 +34,14 @@ export default function App() {
 
 使用 `type` 调整按钮样式
 
+<br/>
+
 <Button type="primary">Primary</Button>
 <Button type="secondary">Secondary</Button>
 <Button type="ghost">Ghost</Button>
 
-```js copy
-import Button from "mmixel-ui"
+```tsx copy
+import { Button } from "mmixel-ui"
 
 export default function App() {
   return (
@@ -51,13 +55,15 @@ export default function App() {
 
 使用 `rounded` 或 `square` 调整按钮形状
 
+<br/>
+
 <Button>不圆</Button>
 <Button rounded>圆润</Button>
 <Button square>方</Button>
 <Button square rounded>原</Button>
 
-```js copy
-import Button from "mmixel-ui"
+```tsx copy
+import { Button } from "mmixel-ui"
 
 export default function App() {
   return (
@@ -73,11 +79,13 @@ export default function App() {
 
 使用 `disabled` 禁用按钮
 
+<br/>
+
 <Button type="primary" disabled>Primary</Button>
 <Button type="secondary" disabled>Secondary</Button>
 
-```js copy
-import Button from "mmixel-ui"
+```tsx copy
+import { Button } from "mmixel-ui"
 
 export default function App() {
   return (
@@ -91,22 +99,64 @@ export default function App() {
 
 使用 `loaidng` 让按钮处于加载状态
 
-<Button size="ty" loading>跑跑跑</Button>
-<Button size="sm" loading>跑跑跑</Button>
-<Button loading>跑跑跑</Button>
-<Button type="primary" loading>跑跑跑</Button>
+<br/>
 
-```js copy
-import Button from "mmixel-ui"
+<Button size="ty" loading>转转转</Button>
+<Button size="sm" loading>转转转</Button>
+<Button type="primary" loading>转转转</Button>
+
+---
+
+import { useState } from "react"
+export const LoadButton = () => {
+  const [loading, setLoading] = useState(false)
+  const showLoad = () => {
+    setLoading(true)
+    setTimeout(()=>{
+      setLoading(false)
+    }, 2000)
+  }
+  return (
+    <Button loading={loading} onClick={showLoad} icon={<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"/></svg>}>这是什么，点一下</Button>
+    )
+}
+
+<LoadButton/>
+
+```tsx copy
+import { Button } from "mmixel-ui"
 
 export default function App() {
   return (
-    <Button size="ty" loading>跑跑跑</Button>
-    <Button size="sm" loading>跑跑跑</Button>
-    <Button loading>跑跑跑</Button>
-    <Button type="primary" loading>跑跑跑</Button>
+    <Button size="ty" loading>转转转</Button>
+    <Button size="sm" loading>转转转</Button>
+    <Button type="primary" loading>转转转</Button>
   )
 }
+```
+
+```tsx copy
+"use client"
+import { Button } from "mmixel-ui"
+import { useState } from "react"
+
+const LoadButton = () => {
+  const [loading, setLoading] = useState<boolean>(false)
+  const showLoad = () => {
+    setLoading(true)
+    setTimeout(()=>{setLoading(false)}, 1000)
+  }
+  return (
+    <Button 
+      loading={loading}
+      onClick={showLoad}
+      icon={<HomeIcon />}>
+      这是什么，点一下
+    </Button>
+  )
+}
+
+export default LoadButton
 ```
 
 ### 图标
@@ -115,12 +165,14 @@ export default function App() {
 
 > 当 `loading` 时icon将会被加载图标替换
 
+<br/>
+
 <Button icon={<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"/></svg>}>苹果</Button>
 
 <Button icon={<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"/></svg>}></Button>
 
-```js copy
-import Button from "mmixel-ui"
+```tsx copy
+import { Button } from "mmixel-ui"
 
 export default function App() {
   return (
@@ -134,7 +186,9 @@ export default function App() {
 
 使用 `ButtonGroup` 组件包裹按钮
 
-import ButtonGroup from '../../components/ButtonGroup'
+<br/>
+
+import ButtonGroup from "../../components/ButtonGroup"
 
 <ButtonGroup>
   <Button>富强</Button>
@@ -150,8 +204,8 @@ import ButtonGroup from '../../components/ButtonGroup'
   <Button>和谐</Button>
 </ButtonGroup>
 
-```js copy
-import Button from "mmixel-ui"
+```tsx copy
+import { Button } from "mmixel-ui"
 
 export default function App() {
   return (
@@ -172,14 +226,21 @@ export default function App() {
 }
 ```
 
-### Props
+### Button Props
 
 | Prop     | Type                                               | Default     | Desc           |
 | :------- | :------------------------------------------------- | :---------- | :------------- |
+| type     | `"default" \| "primary" \| "secondary" \| "ghost"` | `"default"` | 按钮的样式     |
 | size     | `"ty"\| "sm"   \| "md"\| "lg"\| "xl"`              | `"md"`      | 按钮的大小     |
 | rounded  | `boolean`                                          | `false`     | 按钮是否圆角   |
 | square   | `boolean`                                          | `false`     | 按钮是否正方形 |
-| type     | `"default" \| "primary" \| "secondary" \| "ghost"` | `"default"` | 按钮的样式     |
 | disabled | `boolean`                                          | `false`     | 按钮禁用状态   |
 | loading  | `boolean`                                          | `false`     | 按钮加载状态   |
 | icon     | `ReactNode`                                        | `undefined` | 按钮图标       |
+
+### ButtonGroup Props
+
+| Prop      | Type             | Default | Desc           |
+| :-------- | :--------------- | :------ | :------------- |
+| direction | `"hor" \| "ver"` | `"hor"` | 按钮组的方向   |
+| rounded   | `boolean`        | `false` | 按钮组是否圆角 |

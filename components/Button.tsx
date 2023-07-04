@@ -1,4 +1,11 @@
-import { ForwardedRef, HTMLAttributes, PropsWithChildren, ReactNode, forwardRef } from "react"
+"use client"
+import {
+  ForwardedRef,
+  HTMLAttributes,
+  PropsWithChildren,
+  ReactNode,
+  forwardRef
+} from "react"
 import classNames from "classnames"
 import { Size } from "./types"
 
@@ -14,8 +21,15 @@ interface Props extends
   icon?: ReactNode
 }
 
-const LoadingIcon = (props: HTMLAttributes<SVGSVGElement>) => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" {...props}><path fill="currentColor" d="M12 3a9 9 0 0 1 9 9h-2a7 7 0 0 0-7-7V3Z" /></svg>
+const LoadingIcon = (props: { size: string }) => {
+  const parsedWidth = (() => {
+    switch (props.size) {
+      case 'ty': return '12px'
+      case 'sm': return '16px'
+      default: return '20px'
+    }
+  })()
+  return <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style={{ width: parsedWidth }}><path fill="currentColor" d="M12 3a9 9 0 0 1 9 9h-2a7 7 0 0 0-7-7V3Z" /></svg>
 }
 
 const Button = forwardRef(function Button(
@@ -27,7 +41,7 @@ const Button = forwardRef(function Button(
   return (
     <button
       ref={ref}
-      disabled={props.disabled}
+      disabled={props.disabled || props.loading}
       className={classNames(
         props.className,
         // 形状
@@ -53,9 +67,9 @@ const Button = forwardRef(function Button(
           { "px-6": size === "lg" },
           { "px-6": size === "xl" },
         ),
-
-        props.disabled
-          ? "opacity-80 cursor-no-drop"
+        // 加载时透明和取消动效，更改鼠标样式
+        (props.disabled || props.loading)
+          ? `opacity-80 ${props.loading ? "cursor-wait" : "cursor-no-drop"}`
           : "active:scale-95 active:brightness-95 hover:brightness-110",
         // 样式
         { "border-2 border-slate-800/10 dark:border-slate-100/10": type === "default" },
@@ -72,24 +86,18 @@ const Button = forwardRef(function Button(
         "inline-flex justify-center items-center",
       )}
       onClick={props.onClick} >
-      {
-        props.loading || props.icon && (
-          <span className={classNames(
-            { "animate-spin": props.loading },
-            { "mr-1": props.children }
-          )}>
-            {props.loading ? (
-              <LoadingIcon style={{
-                width: size === 'ty'
-                  ? '12px'
-                  : size === 'sm'
-                    ? '16px' : '20px',
-              }} />
-            ) : props.icon
-            }
-          </span>
-        )
-      }
+
+      {(props.icon || props.loading) && (
+        <span className={classNames(
+          { "mr-1": props.children },
+          { "animate-spin": props.loading }
+        )}>
+          {props.loading
+            ? <LoadingIcon size={size} />
+            : props.icon}
+        </span>
+      )}
+
       {props.children}
     </button >
   )
