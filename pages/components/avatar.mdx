@@ -1,6 +1,6 @@
 # 头像 Avatar
 
-人总得有个脸面
+我在社交软件不认昵称只认头像
 
 import Avatar from "../../components/Avatar"
 
@@ -32,7 +32,7 @@ export default function App() {
 
 ### 形状
 
-我觉得你太极端了
+使用 `rounded` 让它变成圆的
 
 <br/>
 
@@ -52,7 +52,7 @@ export default function App() {
 
 ### 边框
 
-圈起来！
+使用 `bordered` 添加边框
 
 <br/>
 
@@ -96,6 +96,8 @@ export default function App() {
 ### 文字
 
 Github没有头像的人分两种：刚注册新手的和巨佬
+
+<br/>
 
 import { useState } from "react"
 import Input from "../../components/Input"
@@ -165,8 +167,8 @@ export const AvatarGroupComponent = () => {
   }]
 
   return (
-    <AvatarGroup>
-      {members.map((member, i) => <Avatar key={i} {...member} rounded />)}
+    <AvatarGroup more={7}>
+      {members.map((member, i) => <Avatar key={i} {...member} />)}
     </AvatarGroup>
   )
 }
@@ -193,8 +195,8 @@ export default function App() {
   }]
 
   return (
-    <AvatarGroup>
-      {members.map((member, i) => <Avatar key={i} {...member} rounded />)}
+    <AvatarGroup more={7}>
+      {members.map((member, i) => <Avatar key={i} {...member} />)}
     </AvatarGroup>
   )
 }
@@ -240,7 +242,9 @@ export default function App() {
 
 ### AvatarGroup Props
 
-| Prop | Type                                   | Default     | Desc                   |
-| :--- | :------------------------------------- | :---------- | :--------------------- |
-| more | `number`                               | `undefined` | 有更多头像时显示的数字 |
-| size | `"ty" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"`      | 更多头像标志的大小     |
+| Prop            | Type                                   | Default     | Desc                   |
+| :-------------- | :------------------------------------- | :---------- | :--------------------- |
+| more            | `number`                               | `undefined` | 有更多头像时显示的数字 |
+| textColor       | `string`                               | `undefined` | 更多头像文字的颜色     |
+| backgroundColor | `string`                               | `undefined` | 更多头像标志的颜色     |
+| size            | `"ty" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"`      | 更多头像标志的大小     |

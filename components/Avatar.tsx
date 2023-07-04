@@ -35,7 +35,7 @@ const Avatar = (props: Props) => {
       "overflow-hidden",
       "inline-block",
       props.rounded ? "rounded-full" : "rounded-md",
-      "bg-slate-200 dark:bg-slate-200/10",
+      "bg-slate-200 dark:bg-gray-800",
       { "outline outline-3 outline-offset-2": props.bordered },
       // 大小
       { "w-8 h-8 text-xs": size === "ty" },
