@@ -5,3 +5,6 @@
 :disabled {
   cursor: no-drop !important;
 }
+input:focus-visible {
+  box-shadow: unset !important;
+}
