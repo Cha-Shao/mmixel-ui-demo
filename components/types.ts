@@ -1,2 +1,3 @@
 export interface PropsWithClassName { className?: string }
-export type Size = | "ty" | "sm" | "md" | "lg" | "xl"
+export type FullSize = "ty" | "sm" | "md" | "lg" | "xl"
+export type Size = "sm" | "md" | "lg" 

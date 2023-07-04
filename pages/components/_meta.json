@@ -1,4 +1,6 @@
 {
   "avatar": "头像 Avatar",
-  "button": "按钮 Button"
+  "button": "按钮 Button",
+  "card": "卡片 Card",
+  "title": "标题 Title"
 }

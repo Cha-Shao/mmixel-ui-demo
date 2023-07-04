@@ -7,13 +7,13 @@ import {
   forwardRef
 } from "react"
 import classNames from "classnames"
-import { Size } from "./types"
+import { FullSize } from "./types"
 
 interface Props extends
   PropsWithChildren,
   HTMLAttributes<HTMLButtonElement> {
   type?: | "default" | "primary" | "secondary" | "ghost"
-  size?: Size
+  size?: FullSize
   rounded?: boolean
   square?: boolean
   disabled?: boolean
@@ -98,7 +98,7 @@ const Button = forwardRef(function Button(
         </span>
       )}
 
-      {props.children}
+      <span>{props.children}</span>
     </button >
   )
 })

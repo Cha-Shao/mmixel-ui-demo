@@ -1,13 +1,13 @@
 import { Children, PropsWithChildren, cloneElement, isValidElement } from "react"
 import classNames from "classnames"
-import { Size } from "./types"
+import { FullSize } from "./types"
 import Avatar from "./Avatar"
 
 interface Props extends PropsWithChildren {
   more?: number
   textColor?: string
   backgroundColor?: string
-  size?: Size
+  size?: FullSize
 }
 
 const AvatarGroup = (props: Props) => {

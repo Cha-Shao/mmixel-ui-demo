@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { Size } from "./types"
+import { FullSize } from "./types"
 import classNames from "classnames"
 import { HTMLAttributes } from "react"
 
@@ -7,7 +7,7 @@ interface Props extends HTMLAttributes<HTMLSpanElement> {
   src?: string
   text?: string
   alt?: string
-  size?: Size
+  size?: FullSize
   rounded?: boolean
   bordered?: boolean
   borderColor?: string

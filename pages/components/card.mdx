@@ -1,0 +1,197 @@
+# 卡片 Card
+
+用来区分区域
+
+import Card from "../../components/Card"
+
+### 大小
+
+使用 `size` 调整大小
+
+<br/>
+
+<div className="p-6 bg-slate-200 dark:bg-zinc-800 grid gap-6 rounded-md">
+  <Card title="小卡片" size="sm">
+    Never gonna give you up
+  </Card>
+  <Card title="卡片">
+    Never gonna let you down
+  </Card>
+  <Card title="大卡片" size="lg">
+    Never gonna run around and desert you
+  </Card>
+</div>
+
+```tsx copy
+import { Card } from "mmixel-ui"
+
+export default function App() {
+  return (
+    <Card title="小卡片" size="sm">
+      Never gonna give you up
+    </Card>
+    <Card title="卡片">
+      Never gonna let you down
+    </Card>
+    <Card title="大卡片" size="lg">
+      Never gonna run around and desert you
+    </Card>
+  )
+}
+```
+
+### 边框
+
+喜欢有边界感的卡片
+
+<br/>
+
+<Card title="一个卡片" bordered>
+  Never gonna give you up
+</Card>
+
+```tsx copy
+import { Card } from "mmixel-ui"
+
+export default function App() {
+  return (
+    <Card title="一个卡片" bordered>
+      Never gonna give you up
+    </Card>
+  )
+}
+```
+
+### 阴影
+
+使用 `shadow` 让卡片投射阴影
+
+<br/>
+
+<div className="p-6 bg-slate-200 dark:bg-zinc-800 rounded-md">
+  <Card title="一个卡片" shadow>
+    Never gonna give you up
+  </Card>
+</div>
+
+```tsx copy
+import { Card } from "mmixel-ui"
+
+export default function App() {
+  return (
+    <Card title="一个卡片" shadow>
+      Never gonna give you up
+    </Card>
+  )
+}
+```
+
+### 标题
+
+可以不输入 `title` 让卡片没有标题
+
+或者在标题写入组件
+
+<br/>
+
+import Avatar from "../../components/Avatar"
+import Title from "../../components/Title"
+export const NoTitle = () => {
+  return (
+    <div className="p-6 bg-slate-200 dark:bg-zinc-800 grid gap-6 rounded-md">
+      <Card>
+        我的头在哪里
+      </Card>
+      <Card title={
+        <div className="flex items-center p-6 pb-0">
+          <Avatar src="/exusiai.png" className="mr-2" />
+          <Title>能天使</Title>
+        </div>
+      }>
+        奖励自己今天可以多吃一块苹果派
+      </Card>
+    </div>
+    )
+}
+
+<NoTitle />
+
+```tsx copy
+import { Card, Avatar, Title } from "mmixel-ui"
+
+export default function App() {
+  return (
+    <Card className="mb-6">
+      我的头在哪里
+    </Card>
+    <Card title={
+      <div className="flex items-center p-6 pb-0">
+        <Avatar src="/exusiai.png" className="mr-2" />
+        <Title>能天使</Title>
+      </div>
+    }>
+      奖励自己今天可以多吃一块苹果派
+    </Card>
+  )
+}
+```
+
+### 关闭按钮
+
+如果你想把卡片放在 Modal 上时...
+
+<br/>
+
+<Card title="请查看" bordered closeable>
+  看看你的
+</Card>
+
+```tsx copy
+import { Card } from "mmixel-ui"
+
+export default function App() {
+  return (
+    <Card 
+      title="请查看"
+      bordered 
+      closeable
+      onClose={()=>{ /** TO DO */ }}>
+      看看你的
+    </Card>
+  )
+}
+```
+
+### 页脚
+
+打个脚先
+
+<br/>
+
+<Card title="头" footer={<span>脚</span>} bordered>
+  身子
+</Card>
+
+```tsx copy
+import { Card } from "mmixel-ui"
+
+export default function App() {
+  return (
+    <Card title="头" footer={<span>脚</span>} bordered>
+      身子
+    </Card>
+  )
+}
+```
+
+### Card Props
+
+| Prop      | Type                   | Default     | Desc             |
+| :-------- | :--------------------- | :---------- | :--------------- |
+| title     | `string`               | `undefined` | 卡片的标题       |
+| footer    | `ReactNode`            | `undefined` | 卡片的页脚       |
+| size      | `"sm" \| "md" \| "lg"` | `"md"`      | 卡片的大小       |
+| bordered  | `boolean`              | `false`     | 卡片是否带边框   |
+| shadow    | `boolean`              | `false`     | 卡片是否带阴影   |
+| closeable | `boolean`              | `false`     | 卡片是否可关闭   |
+| onClose   | `() => void`           | `undefined` | 卡片关闭时的回调 |
