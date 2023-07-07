@@ -1,0 +1,118 @@
+import Tag from "../../components/Tag"
+
+# 标签 Tag
+
+分类是个好习惯
+
+### 大小
+
+使用 `size` 调整大小
+
+<br/>
+
+<Tag size="sm">子鼠</Tag>
+<Tag size="sm">丑牛</Tag>
+<Tag size="sm">寅虎</Tag>
+<Tag size="sm">卯兔</Tag>
+<Tag>辰龙</Tag>
+<Tag>巳蛇</Tag>
+<Tag>午马</Tag>
+<Tag>未羊</Tag>
+<Tag size="lg">申猴</Tag>
+<Tag size="lg">酉鸡</Tag>
+<Tag size="lg">戌狗</Tag>
+<Tag size="lg">亥猪</Tag>
+
+```tsx copy
+import { Tag } from "mmixel-ui"
+
+export default function App() {
+  return (
+    <Tag size="sm">子鼠</Tag>
+    <Tag size="sm">丑牛</Tag>
+    <Tag size="sm">寅虎</Tag>
+    <Tag size="sm">卯兔</Tag>
+    <Tag>辰龙</Tag>
+    <Tag>巳蛇</Tag>
+    <Tag>午马</Tag>
+    <Tag>未羊</Tag>
+    <Tag size="lg">申猴</Tag>
+    <Tag size="lg">酉鸡</Tag>
+    <Tag size="lg">戌狗</Tag>
+    <Tag size="lg">亥猪</Tag>
+  )
+}
+```
+
+### 形状
+
+使用 `rounded` 调整形状
+
+<br/>
+
+<Tag rounded>我超</Tag>
+<Tag rounded>圆！</Tag>
+
+```tsx copy
+import { Tag } from "mmixel-ui"
+
+export default function App() {
+  return (
+    <Tag rounded>我超</Tag>
+    <Tag rounded>圆！</Tag>
+  )
+}
+```
+
+### 可关闭
+
+标签可以关掉
+
+<br/>
+
+<Tag closeable onClose={()=>{console.log("关掉了")}}>关掉！</Tag>
+<Tag closeable onClose={()=>{console.log("关掉了")}}>关掉！</Tag>
+<Tag closeable onClose={()=>{console.log("关掉了")}}>一定要关掉！</Tag>
+
+```tsx copy
+import { Tag } from "mmixel-ui"
+
+export default function App() {
+  return (
+    <Tag closeable onClose={()=>{console.log("关掉了")}}>关掉！</Tag>
+    <Tag closeable onClose={()=>{console.log("关掉了")}}>关掉！</Tag>
+    <Tag closeable onClose={()=>{console.log("关掉了")}}>一定要关掉！</Tag>
+  )
+}
+```
+
+### 颜色
+
+标签可使用所有 `span` 的属性
+
+<br/>
+
+<Tag className="bg-yellow-500/25 border-yellow-500 text-yellow-500">红色</Tag>
+<Tag className="bg-red-500/25 border-red-500 text-red-500">蓝色</Tag>
+<Tag className="bg-blue-500/25 border-blue-500 text-blue-500">黄色</Tag>
+
+```tsx copy
+import { Tag } from "mmixel-ui"
+
+export default function App() {
+  return (
+    <Tag className="bg-yellow-500/25 border-yellow-500 text-yellow-500">红色</Tag>
+    <Tag className="bg-red-500/25 border-red-500 text-red-500">蓝色</Tag>
+    <Tag className="bg-blue-500/25 border-blue-500 text-blue-500">黄色</Tag>
+  )
+}
+```
+
+### Tag Props
+
+| Prop      | Type                   | Default     | Desc             |
+| :-------- | :--------------------- | :---------- | :--------------- |
+| size      | `"sm" \| "md" \| "lg"` | `md`        | 标签的大小       |
+| rounded   | `boolean`              | `false`     | 标签是否圆形     |
+| closeable | `boolean`              | `false`     | 标签是否可关闭   |
+| onClose   | `() => void`           | `undefined` | 标签关闭时的回调 |

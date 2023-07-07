@@ -21,6 +21,22 @@ import Image from "next/image"
   </div>
 </Dropdown>
 
+```tsx copy
+import { Dropdown } from "mmixel-ui"
+
+export default function App() {
+  return (
+    <Dropdown trigger={<Button>操作</Button>}>
+      <div className="p-2 grid bg-white">
+        <Link href="" className="px-6 py-2 hover:bg-gray-100">点赞</Link>
+        <Link href="" className="px-6 py-2 hover:bg-gray-100">投币</Link>
+        <Link href="" className="px-6 py-2 hover:bg-gray-100">收藏</Link>
+      </div>
+    </Dropdown>
+  )
+}
+```
+
 ### 触发方式
 
 使用 `listen` 改变触发方式
@@ -35,6 +51,22 @@ import Image from "next/image"
   </div>
 </Dropdown>
 
+```tsx copy
+import { Dropdown } from "mmixel-ui"
+
+export default function App() {
+  return (
+    <Dropdown trigger={<Button>上面！</Button>} listen="click">
+      <div className="p-2 grid bg-white">
+        <Link href="" className="px-6 py-2 hover:bg-gray-100">点赞</Link>
+        <Link href="" className="px-6 py-2 hover:bg-gray-100">投币</Link>
+        <Link href="" className="px-6 py-2 hover:bg-gray-100">收藏</Link>
+      </div>
+    </Dropdown>
+  )
+}
+```
+
 ### 方向
 
 使用 `direction` 改变菜单方向
@@ -48,6 +80,22 @@ import Image from "next/image"
     <Link href="" className="px-6 py-2 hover:bg-gray-100">收藏</Link>
   </div>
 </Dropdown>
+
+```tsx copy
+import { Dropdown } from "mmixel-ui"
+
+export default function App() {
+  return (
+    <Dropdown trigger={<Button>上面！</Button>} direction="top">
+      <div className="p-2 grid bg-white">
+        <Link href="" className="px-6 py-2 hover:bg-gray-100">点赞</Link>
+        <Link href="" className="px-6 py-2 hover:bg-gray-100">投币</Link>
+        <Link href="" className="px-6 py-2 hover:bg-gray-100">收藏</Link>
+      </div>
+    </Dropdown>
+  )
+}
+```
 
 ### Dropdown Props
 
@@ -89,3 +137,38 @@ import Image from "next/image"
     </div>
   </div>
 </Dropdown>
+
+```tsx copy
+import { Dropdown } from "mmixel-ui"
+
+export default function App() {
+  return (
+    <Dropdown trigger={<Button>你被骗了</Button>}>
+      <div className="flex p-4 bg-white divide-x">
+        <div className="pr-4">
+          <Image
+            src="/carousel/d2b1e3aea6add585b7cd5ebb53e2a7de11b74db60b6ebdbf04dc1c81ef2ed633.png" alt=""
+            width={256} height={144} className="rounded-md mb-4"/>
+          <div className="flex w-full">
+            <Image src="/avatar/rick_astley.jpg" alt=""
+              width={64} height={64} className="rounded-md w-full" />
+            <Image src="/avatar/rick_astley.jpg" alt=""
+              width={64} height={64} className="rounded-md w-full mx-4" />
+            <Image src="/avatar/rick_astley.jpg" alt=""
+              width={64} height={64} className="rounded-md w-full" />
+          </div>
+        </div>
+        <div className="pl-4">
+          <h3 className="text-lg">其他链接</h3>
+          <p className="opacity-50 py-1">Never gonna give you up</p>
+          <p className="opacity-50 py-1">Never gonna let you down</p>
+          <p className="opacity-50 py-1">Never gonna run around and desert you</p>
+          <p className="opacity-50 py-1">Never gonna make you cry</p>
+          <p className="opacity-50 py-1">Never gonna say good bye</p>
+          <p className="opacity-50 py-1">Never gonna tell a lie and hurt you</p>
+        </div>
+      </div>
+    </Dropdown>
+  )
+}
+```
