@@ -1,8 +1,27 @@
+import Card from "../../components/Card"
+import Avatar from "../../components/Avatar"
+import Title from "../../components/Title"
+export const NoTitle = () => {
+  return (
+    <div className="p-6 bg-slate-200 dark:bg-zinc-800 grid gap-6 rounded-md">
+      <Card>
+        我的头在哪里
+      </Card>
+      <Card title={
+        <div className="flex items-center p-6 pb-0">
+          <Avatar src="/exusiai.png" className="mr-2" />
+          <Title>能天使</Title>
+        </div>
+      }>
+        奖励自己今天可以多吃一块苹果派
+      </Card>
+    </div>
+    )
+}
+
 # 卡片 Card
 
 用来划分区域
-
-import Card from "../../components/Card"
 
 ### 大小
 
@@ -93,26 +112,6 @@ export default function App() {
 或者在标题写入组件
 
 <br/>
-
-import Avatar from "../../components/Avatar"
-import Title from "../../components/Title"
-export const NoTitle = () => {
-  return (
-    <div className="p-6 bg-slate-200 dark:bg-zinc-800 grid gap-6 rounded-md">
-      <Card>
-        我的头在哪里
-      </Card>
-      <Card title={
-        <div className="flex items-center p-6 pb-0">
-          <Avatar src="/exusiai.png" className="mr-2" />
-          <Title>能天使</Title>
-        </div>
-      }>
-        奖励自己今天可以多吃一块苹果派
-      </Card>
-    </div>
-    )
-}
 
 <NoTitle />
 

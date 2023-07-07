@@ -10,7 +10,8 @@ interface Props extends
 
 const ButtonGroup = forwardRef(function ButtonGroup(
   props: Props,
-  ref: ForwardedRef<HTMLDivElement>) {
+  ref: ForwardedRef<HTMLDivElement>
+) {
   const direction = props.direction || "hor"
   return (
     <div ref={ref}

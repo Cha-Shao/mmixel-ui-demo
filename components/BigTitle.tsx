@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react'
+import { ForwardedRef, HTMLAttributes, forwardRef } from 'react'
 import Title from './Title'
 import classNames from 'classnames'
 
@@ -8,11 +8,14 @@ interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
   blurColor?: [string, string]
 }
 
-const BigTitle = (props: Props) => {
+const BigTitle = forwardRef(function BigTitle(
+  props: Props,
+  ref: ForwardedRef<HTMLDivElement>
+) {
   const titleColor = props.titleColor || ["#ff8729", "black"]
   const blurColor = props.blurColor || ["red", "#ff8729"]
   return (
-    <div className={classNames(
+    <div ref={ref} className={classNames(
       props.className,
       "relative w-fit",
     )}>
@@ -48,6 +51,6 @@ const BigTitle = (props: Props) => {
       }}>糊</h1>
     </div>
   )
-}
+})
 
 export default BigTitle

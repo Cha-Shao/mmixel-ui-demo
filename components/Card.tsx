@@ -1,5 +1,5 @@
 import classNames from "classnames"
-import { HTMLAttributes, PropsWithChildren, ReactNode } from "react"
+import { ForwardedRef, HTMLAttributes, PropsWithChildren, ReactNode, forwardRef } from "react"
 import { Size } from "./types"
 import Title from "./Title"
 
@@ -12,27 +12,32 @@ interface Props extends
   bordered?: boolean
   shadow?: boolean
   closeable?: boolean
-  onClose: () => void
+  onClose?: () => void
 }
 
 const CloseIcon = () => {
   return <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 10.586l4.95-4.95l1.415 1.415l-4.95 4.95l4.95 4.95l-1.415 1.414l-4.95-4.95l-4.95 4.95l-1.413-1.415l4.95-4.95l-4.95-4.95L7.05 5.638l4.95 4.95Z" /></svg>
 }
 
-const Card = (props: Props) => {
+const Card = forwardRef(function Card(
+  props: Props,
+  ref: ForwardedRef<HTMLDivElement>
+) {
   const size = props.size || "md"
   return (
-    <div className={classNames(
-      props.className,
-      "relative",
-      "overflow-hidden",
-      "bg-white dark:bg-zinc-900",
-      { "rounded-md": size === "sm" },
-      { "rounded-lg": size === "md" },
-      { "rounded-xl": size === "lg" },
-      { "border-2 border-slate-800/10 dark:border-slate-100/10": props.bordered },
-      { "shadow-md": props.shadow }
-    )}>
+    <div
+      ref={ref}
+      className={classNames(
+        props.className,
+        "relative",
+        "overflow-hidden",
+        "bg-white dark:bg-zinc-900",
+        { "rounded-md": size === "sm" },
+        { "rounded-lg": size === "md" },
+        { "rounded-xl": size === "lg" },
+        { "border-2 border-slate-800/10 dark:border-slate-100/10": props.bordered },
+        { "shadow-md": props.shadow }
+      )}>
       {props.title && typeof props.title === "string" ? (
         <Title
           size={props.size}
@@ -75,6 +80,6 @@ const Card = (props: Props) => {
       )}
     </div>
   )
-}
+})
 
 export default Card

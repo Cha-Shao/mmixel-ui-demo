@@ -34,8 +34,8 @@ const LoadingIcon = (props: { size: string }) => {
 
 const Button = forwardRef(function Button(
   props: Props,
-  ref: ForwardedRef<HTMLButtonElement>) {
-
+  ref: ForwardedRef<HTMLButtonElement>
+) {
   const type = props.type || "default"
   const size = props.size || "md"
   return (

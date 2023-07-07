@@ -1,107 +1,7 @@
-# 头像 Avatar
-
-我在社交软件不认昵称只认头像
-
 import Avatar from "../../components/Avatar"
-
-### 大小
-
-面子很大
-
-<br/>
-
-<Avatar size="ty" src="/avatar.png" />
-<Avatar size="sm" text="Dusk" />
-<Avatar src="/avatar.png" />
-<Avatar size="lg" text="Dusk" />
-<Avatar size="xl" src="/avatar.png" />
-
-```tsx copy
-import { Avatar } from "mmixel-ui"
-
-export default function App() {
-  return (
-    <Avatar size="ty" src="/avatar.png" />
-    <Avatar size="sm" text="Dusk" />
-    <Avatar src="/avatar.png" />
-    <Avatar size="lg" text="Dusk" />
-    <Avatar size="xl" src="/avatar.png" />
-  )
-}
-```
-
-### 形状
-
-使用 `rounded` 让它变成圆的
-
-<br/>
-
-<Avatar src="/avatar.png" />
-<Avatar rounded src="/avatar.png" />
-
-```tsx copy
-import { Avatar } from "mmixel-ui"
-
-export default function App() {
-  return (
-    <Avatar src="/avatar.png" />
-    <Avatar rounded src="/avatar.png" />
-  )
-}
-```
-
-### 边框
-
-- `bordered` 添加边框
-- `borderColor` 调整边框颜色
-
-<br/>
-
-<Avatar src="/avatar.png" bordered className="mr-2"/>
-<Avatar src="/avatar.png" bordered borderColor="#00b3bb" rounded/>
-
-```tsx copy
-import { Avatar } from "mmixel-ui"
-
-export default function App() {
-  return (
-    <Avatar src="/avatar.png" bordered className="mr-2"/>
-    <Avatar src="/avatar.png" bordered rounded/>
-  )
-}
-```
-
-### 背景
-
-- `backgroundColor` 调整背景颜色
-- `textColor` 调整文字颜色
-
-<br/>
-
-<Avatar size="xl" text="Exusiai" textColor="crimson" />
-<Avatar size="xl" backgroundColor="#ef8923" src="/exusiai.png" />
-<Avatar size="xl" backgroundColor="#313131" src="/exusiai.png" />
-
-```tsx copy
-import { Avatar } from "mmixel-ui"
-
-export default function App() {
-  return (
-    <Avatar size="xl" text="Exusiai" textColor="crimson" />
-    <Avatar size="xl" backgroundColor="#ef8923" src="/exusiai.png" />
-    <Avatar size="xl" backgroundColor="#313131" src="/exusiai.png" />
-  )
-}
-```
-
-### 文字
-
-Github没有头像的人分两种：刚注册的新手和巨佬
-
-<br/>
-
 import { useState } from "react"
 import Input from "../../components/Input"
+
 export const AvatarText = () => {
   const [inputText, setInputText] = useState("Dusk")
   return (
@@ -118,6 +18,106 @@ export const AvatarText = () => {
     </>
   )
 }
+
+# 头像 Avatar
+
+我在社交软件不认昵称只认头像
+
+### 大小
+
+面子很大
+
+<br/>
+
+<Avatar size="ty" src="/avatar/avatar.png" />
+<Avatar size="sm" text="Dusk" />
+<Avatar src="/avatar/avatar.png" />
+<Avatar size="lg" text="Dusk" />
+<Avatar size="xl" src="/avatar/avatar.png" />
+
+```tsx copy
+import { Avatar } from "mmixel-ui"
+
+export default function App() {
+  return (
+    <Avatar size="ty" src="/avatar/avatar.png" />
+    <Avatar size="sm" text="Dusk" />
+    <Avatar src="/avatar/avatar.png" />
+    <Avatar size="lg" text="Dusk" />
+    <Avatar size="xl" src="/avatar/avatar.png" />
+  )
+}
+```
+
+### 形状
+
+使用 `rounded` 让它变成圆的
+
+<br/>
+
+<Avatar src="/avatar/avatar.png" />
+<Avatar rounded src="/avatar/avatar.png" />
+
+```tsx copy
+import { Avatar } from "mmixel-ui"
+
+export default function App() {
+  return (
+    <Avatar src="/avatar/avatar.png" />
+    <Avatar rounded src="/avatar/avatar.png" />
+  )
+}
+```
+
+### 边框
+
+- `bordered` 添加边框
+- `borderColor` 调整边框颜色
+
+<br/>
+
+<Avatar src="/avatar/avatar.png" bordered className="mr-2"/>
+<Avatar src="/avatar/avatar.png" bordered borderColor="#00b3bb" rounded/>
+
+```tsx copy
+import { Avatar } from "mmixel-ui"
+
+export default function App() {
+  return (
+    <Avatar src="/avatar/avatar.png" bordered className="mr-2"/>
+    <Avatar src="/avatar/avatar.png" bordered rounded/>
+  )
+}
+```
+
+### 背景
+
+- `backgroundColor` 调整背景颜色
+- `textColor` 调整文字颜色
+
+<br/>
+
+<Avatar size="xl" text="Exusiai" textColor="crimson" />
+<Avatar size="xl" backgroundColor="#ef8923" src="/avatar/exusiai.png" />
+<Avatar size="xl" backgroundColor="#313131" src="/avatar/exusiai.png" />
+
+```tsx copy
+import { Avatar } from "mmixel-ui"
+
+export default function App() {
+  return (
+    <Avatar size="xl" text="Exusiai" textColor="crimson" />
+    <Avatar size="xl" backgroundColor="#ef8923" src="/avatar/exusiai.png" />
+    <Avatar size="xl" backgroundColor="#313131" src="/avatar/exusiai.png" />
+  )
+}
+```
+
+### 文字
+
+Github没有头像的人分两种：刚注册的新手和巨佬
+
+<br/>
 
 <AvatarText/>
 
@@ -153,13 +153,13 @@ export const AvatarText = () => {
 import AvatarGroup from "../../components/AvatarGroup"
 export const AvatarGroupComponent = () => {
   const members = [{
-    src: "/avatar.png"
+    src: "/avatar/avatar.png"
   }, {
     text: "Nian",
     bordered: true,
     borderColor: "#f34e0e"
   }, {
-    src: "/exusiai.png",
+    src: "/avatar/exusiai.png",
     backgroundColor: "#313131"
   }, {
     text: "Texas",
@@ -181,13 +181,13 @@ import { Avatar, AvatarGroup } from "mmixel-ui"
 
 export default function App() {
   const members = [{
-    src: "/avatar.png"
+    src: "/avatar/avatar.png"
   }, {
     text: "Nian",
     bordered: true,
     borderColor: "#f34e0e"
   }, {
-    src: "/exusiai.png",
+    src: "/avatar/exusiai.png",
     backgroundColor: "#313131"
   }, {
     text: "Texas",
@@ -211,16 +211,16 @@ export default function App() {
 
 <br/>
 
-<Avatar src="/avatar.png" />
-<Avatar lazy={false} src="/avatar.png" />
+<Avatar src="/avatar/avatar.png" />
+<Avatar lazy={false} src="/avatar/avatar.png" />
 
 ```tsx copy
 import { Avatar } from "mmixel-ui"
 
 export default function App() {
   return (
-    <Avatar src="/avatar.png" />
-    <Avatar lazy={false} src="/avatar.png" />
+    <Avatar src="/avatar/avatar.png" />
+    <Avatar lazy={false} src="/avatar/avatar.png" />
   )
 }
 ```

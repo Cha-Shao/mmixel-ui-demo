@@ -1,4 +1,4 @@
-import { Children, PropsWithChildren, cloneElement, isValidElement } from "react"
+import { Children, ForwardedRef, PropsWithChildren, cloneElement, forwardRef, isValidElement } from "react"
 import classNames from "classnames"
 import { FullSize } from "./types"
 import Avatar from "./Avatar"
@@ -10,9 +10,12 @@ interface Props extends PropsWithChildren {
   size?: FullSize
 }
 
-const AvatarGroup = (props: Props) => {
+const AvatarGroup = forwardRef(function AvatarGroup(
+  props: Props,
+  ref: ForwardedRef<HTMLDivElement>
+) {
   return (
-    <div className="flex">
+    <div ref={ref} className="flex">
       {Children.map(props.children, (child) => {
         return isValidElement<{
           rounded: boolean
@@ -38,6 +41,6 @@ const AvatarGroup = (props: Props) => {
       )}
     </div>
   )
-}
+})
 
 export default AvatarGroup

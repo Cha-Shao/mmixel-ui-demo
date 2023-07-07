@@ -1,0 +1,140 @@
+import Carousel from "../../components/Carousel"
+import Image from "next/image"
+
+# 轮播 Carousel
+
+转转转，不认识的组件
+
+### 默认
+
+最基础的轮播
+
+<p className="text-red-500">想要使用基础轮播，需在组件外包裹一层相对定位的容器</p>
+
+<br/>
+
+<div className="relative">
+  <Carousel>
+    <Image
+      src="/carousel/8db06cb6918f35ad86512810c01aa38815b1d6bb0aab60526737647ec4a343d2.png"
+      className="w-full object-cover" alt=""
+      width={720} height={405} />
+    <Image
+      src="/carousel/9076dccead5d973e870216a55afe95cdcf11ed923c15f0c6e3f41a240a1710fd.png"
+      className="w-full object-cover" alt=""
+      width={720} height={405} />
+    <Image
+      src="/carousel/cbf8621803f02ced3dfe2f1ca57e290cc0dccebd485b0e9fb2f8f826f38f01bf.png"
+      className="w-full object-cover" alt=""
+      width={720} height={405} />
+    <Image
+      src="/carousel/d2b1e3aea6add585b7cd5ebb53e2a7de11b74db60b6ebdbf04dc1c81ef2ed633.png"
+      className="w-full object-cover" alt=""
+      width={720} height={405} />
+  </Carousel>
+</div>
+
+```tsx copy
+import { Carousel, Button } from "mmixel-ui"
+import Image from "next/image"
+import classNames from "classnames"
+
+const getImages = async () => {
+  const images = [
+    "/8db06cb6918f35ad86512810c01aa38815b1d6bb0aab60526737647ec4a343d2.png",
+    "/9076dccead5d973e870216a55afe95cdcf11ed923c15f0c6e3f41a240a1710fd.png",
+    "/cbf8621803f02ced3dfe2f1ca57e290cc0dccebd485b0e9fb2f8f826f38f01bf.png",
+    "/d2b1e3aea6add585b7cd5ebb53e2a7de11b74db60b6ebdbf04dc1c81ef2ed633.png",
+  ]
+  return images
+}
+
+export const CarouselExample = async () => {
+  const images = await getImages()
+
+  return (
+    <div className="relative">
+      <Carousel>
+        {images.map((image, i) => (
+          <Image
+            key={i}
+            src={`/carousel${image}`}
+            className="w-full object-cover" alt=""
+            width={720} height={405} />
+        ))}
+      </Carousel>
+    </div>
+  )
+}
+```
+
+### 自动播放
+
+使用 `autoplay` 解放双手
+
+调整 `interval` 修改每页停留时间
+
+<br/>
+
+<div className="relative">
+  <Carousel autoplay interval={2000}>
+    <Image
+      src="/carousel/8db06cb6918f35ad86512810c01aa38815b1d6bb0aab60526737647ec4a343d2.png"
+      className="w-full object-cover" alt=""
+      width={720} height={405} />
+    <Image
+      src="/carousel/9076dccead5d973e870216a55afe95cdcf11ed923c15f0c6e3f41a240a1710fd.png"
+      className="w-full object-cover" alt=""
+      width={720} height={405} />
+    <Image
+      src="/carousel/cbf8621803f02ced3dfe2f1ca57e290cc0dccebd485b0e9fb2f8f826f38f01bf.png"
+      className="w-full object-cover" alt=""
+      width={720} height={405} />
+    <Image
+      src="/carousel/d2b1e3aea6add585b7cd5ebb53e2a7de11b74db60b6ebdbf04dc1c81ef2ed633.png"
+      className="w-full object-cover" alt=""
+      width={720} height={405} />
+  </Carousel>
+</div>
+
+```tsx copy
+import { Carousel, Button } from "mmixel-ui"
+import Image from "next/image"
+import classNames from "classnames"
+
+const getImages = async () => {
+  const images = [
+    "/8db06cb6918f35ad86512810c01aa38815b1d6bb0aab60526737647ec4a343d2.png",
+    "/9076dccead5d973e870216a55afe95cdcf11ed923c15f0c6e3f41a240a1710fd.png",
+    "/cbf8621803f02ced3dfe2f1ca57e290cc0dccebd485b0e9fb2f8f826f38f01bf.png",
+    "/d2b1e3aea6add585b7cd5ebb53e2a7de11b74db60b6ebdbf04dc1c81ef2ed633.png",
+  ]
+  return images
+}
+
+export const CarouselExample = async () => {
+  const images = await getImages()
+
+  return (
+    <div className="relative">
+      <Carousel autoplay interval={2000}>
+        {images.map((image, i) => (
+          <Image
+            key={i}
+            src={`/carousel${image}`}
+            className="w-full object-cover" alt=""
+            width={720} height={405} />
+        ))}
+      </Carousel>
+    </div>
+  )
+}
+```
+
+### Carousel Props
+
+| Prop     | Type     | Default     | Desc                       |
+| :------- | :------- | :---------- | :------------------------- |
+| page     | `number` | `undefined` | 当前轮播页(index, 从0开始) |
+| delay    | `number` | `0`         | 轮播播放前摇(ms)           |
+| duration | `number` | `300`       | 轮播动画时长(ms)           |
