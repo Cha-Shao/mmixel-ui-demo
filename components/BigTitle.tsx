@@ -1,4 +1,8 @@
-import { ForwardedRef, HTMLAttributes, forwardRef } from 'react'
+import {
+  ForwardedRef,
+  HTMLAttributes,
+  forwardRef
+} from 'react'
 import Title from './Title'
 import classNames from 'classnames'
 

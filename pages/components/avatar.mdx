@@ -1,6 +1,7 @@
 import Avatar from "../../components/Avatar"
 import { useState } from "react"
 import Input from "../../components/Input"
+import AvatarGroup from "../../components/AvatarGroup"
 
 export const AvatarText = () => {
   const [inputText, setInputText] = useState("Dusk")
@@ -16,6 +17,31 @@ export const AvatarText = () => {
       </div>
       <Input value={inputText} setValue={setInputText}/>
     </>
+  )
+}
+
+export const AvatarGroupComponent = () => {
+  const members = [{
+    src: "/avatar/avatar.png"
+  }, {
+    text: "Nian",
+    bordered: true,
+    borderColor: "#f34e0e"
+  }, {
+    src: "/avatar/exusiai.png",
+    backgroundColor: "#313131"
+  }, {
+    text: "Texas",
+    textColor: "white",
+    backgroundColor: "linear-gradient(45deg, #443ab4, #1d83d8)"
+  }, {
+    src: "/avatar/rick_astley.jpg"
+  }]
+
+  return (
+    <AvatarGroup more={7}>
+      {members.map((member, i) => <Avatar key={i} {...member} />)}
+    </AvatarGroup>
   )
 }
 
@@ -150,30 +176,6 @@ export const AvatarText = () => {
 
 <br/>
 
-import AvatarGroup from "../../components/AvatarGroup"
-export const AvatarGroupComponent = () => {
-  const members = [{
-    src: "/avatar/avatar.png"
-  }, {
-    text: "Nian",
-    bordered: true,
-    borderColor: "#f34e0e"
-  }, {
-    src: "/avatar/exusiai.png",
-    backgroundColor: "#313131"
-  }, {
-    text: "Texas",
-    textColor: "white",
-    backgroundColor: "linear-gradient(45deg, #443ab4, #1d83d8)"
-  }]
-
-  return (
-    <AvatarGroup more={7}>
-      {members.map((member, i) => <Avatar key={i} {...member} />)}
-    </AvatarGroup>
-  )
-}
-
 <AvatarGroupComponent />
 
 ```tsx copy
@@ -193,6 +195,8 @@ export default function App() {
     text: "Texas",
     textColor: "white",
     backgroundColor: "linear-gradient(45deg, #443ab4, #1d83d8)"
+  }, {
+    src: "/avatar/rick_astley.jpg"
   }]
 
   return (

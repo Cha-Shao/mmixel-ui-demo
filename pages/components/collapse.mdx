@@ -1,0 +1,80 @@
+import Collapse from "../../components/Collapse"
+
+# 折叠面板 Collapse
+
+用来存放不太主要的信息
+
+### 默认
+
+<div className="divide-y">
+  <Collapse title="鼠符咒">
+    代表生命之力，能赋予静态能动力，使非生物拥有生命和行动能力。
+  </Collapse>
+  <Collapse title="牛符咒">
+    代表力量，让拥有者力大无穷、身强体壮。
+  </Collapse>
+  <Collapse title="虎符咒">
+    阴阳调和，调和其他十一个符咒魔力的冲突，使所有符咒的魔力在圣主体内互相交融平衡避免发生错乱。但还有一种副作用就是会持有者分身成性格相反的两个人格，以各自独立的个体而存在。
+  </Collapse>
+</div>
+
+```tsx copy
+import { Collapse } from "mmixel-ui"
+
+export default function App() {
+  return (
+    <div className="divide-y">
+  <Collapse title="鼠符咒">
+    代表生命之力，能赋予静态能动力，使非生物拥有生命和行动能力。
+  </Collapse>
+  <Collapse title="牛符咒">
+    代表力量，让拥有者力大无穷、身强体壮。
+  </Collapse>
+  <Collapse title="虎符咒">
+    阴阳调和，调和其他十一个符咒魔力的冲突，使所有符咒的魔力在圣主体内互相交融平衡避免发生错乱。但还有一种副作用就是会持有者分身成性格相反的两个人格，以各自独立的个体而存在。
+  </Collapse>
+    </div>
+  )
+}
+```
+
+### 默认打开
+
+<div className="divide-y">
+  <Collapse title="兔符咒">
+    拥有极快的速度移动，代表瞬移和敏捷；后期被离子周波射中后还可以穿梭时空回到过去。
+  </Collapse>
+  <Collapse title="龙符咒" initOpen={true}>
+    可以爆射出破坏力巨大的爆燃火炎，代表爆破轰炸。
+  </Collapse>
+  <Collapse title="蛇符咒">
+    可以使持有者隐身，让别人视而不见，无影无踪。
+  </Collapse>
+</div>
+
+```tsx copy
+import { Collapse } from "mmixel-ui"
+
+export default function App() {
+  return (
+    <div className="divide-y">
+      <Collapse title="兔符咒">
+        拥有极快的速度移动，代表瞬移和敏捷；后期被离子周波射中后还可以穿梭时空回到过去。
+      </Collapse>
+      <Collapse title="龙符咒" initOpen={true}>
+        可以爆射出破坏力巨大的爆燃火炎，代表爆破轰炸。
+      </Collapse>
+      <Collapse title="蛇符咒">
+        可以使持有者隐身，让别人视而不见，无影无踪。
+      </Collapse>
+    </div>
+  )
+}
+```
+
+### Collapse Props
+
+| Prop     | Type      | Default     | Desc             |
+| :------- | :-------- | :---------- | :--------------- |
+| title    | `string`  | `undefined` | 折叠面板的标题   |
+| initOpen | `boolean` | `undefined` | 面板默认打开状态 |

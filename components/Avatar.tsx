@@ -1,7 +1,11 @@
 import Image from "next/image"
 import { FullSize } from "./types"
 import classNames from "classnames"
-import { ForwardedRef, HTMLAttributes, forwardRef } from "react"
+import {
+  ForwardedRef,
+  HTMLAttributes,
+  forwardRef
+} from "react"
 
 interface Props extends HTMLAttributes<HTMLSpanElement> {
   src?: string

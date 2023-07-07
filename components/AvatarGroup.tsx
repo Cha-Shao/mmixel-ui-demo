@@ -1,4 +1,11 @@
-import { Children, ForwardedRef, PropsWithChildren, cloneElement, forwardRef, isValidElement } from "react"
+import {
+  Children,
+  ForwardedRef,
+  PropsWithChildren,
+  cloneElement,
+  forwardRef,
+  isValidElement
+} from "react"
 import classNames from "classnames"
 import { FullSize } from "./types"
 import Avatar from "./Avatar"

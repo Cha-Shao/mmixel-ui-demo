@@ -1,5 +1,10 @@
 import classNames from "classnames"
-import { ForwardedRef, HTMLAttributes, PropsWithChildren, forwardRef } from "react"
+import {
+  ForwardedRef,
+  HTMLAttributes,
+  PropsWithChildren,
+  forwardRef
+} from "react"
 import { FullSize } from "./types"
 
 interface Props extends

@@ -1,5 +1,11 @@
 import classNames from "classnames"
-import { ForwardedRef, HTMLAttributes, PropsWithChildren, ReactNode, forwardRef } from "react"
+import {
+  ForwardedRef,
+  HTMLAttributes,
+  PropsWithChildren,
+  ReactNode,
+  forwardRef
+} from "react"
 import { Size } from "./types"
 import Title from "./Title"
 

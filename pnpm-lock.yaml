@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -43,6 +43,9 @@ devDependencies:
   '@types/react':
     specifier: 18.2.14
     version: registry.npmmirror.com/@types/react@18.2.14
+  '@types/react-dom':
+    specifier: ^18.2.6
+    version: registry.npmmirror.com/@types/react-dom@18.2.6
   autoprefixer:
     specifier: ^10.4.14
     version: registry.npmmirror.com/autoprefixer@10.4.14(postcss@8.4.24)
@@ -592,6 +595,14 @@ packages:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/prop-types/-/prop-types-15.7.5.tgz}
     name: '@types/prop-types'
     version: 15.7.5
+
+  registry.npmmirror.com/@types/react-dom@18.2.6:
+    resolution: {integrity: sha512-2et4PDvg6PVCyS7fuTc4gPoksV58bW0RwSxWKcPRcHZf0PRUGq03TKcD/rUHe3azfV6/5/biUBJw+HhCQjaP0A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/react-dom/-/react-dom-18.2.6.tgz}
+    name: '@types/react-dom'
+    version: 18.2.6
+    dependencies:
+      '@types/react': registry.npmmirror.com/@types/react@18.2.14
+    dev: true
 
   registry.npmmirror.com/@types/react@18.2.14:
     resolution: {integrity: sha512-A0zjq+QN/O0Kpe30hA1GidzyFjatVvrpIvWLxD+xv67Vt91TWWgco9IvrJBkeyHm1trGaFS/FSGqPlhyeZRm0g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/react/-/react-18.2.14.tgz}

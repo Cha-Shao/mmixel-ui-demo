@@ -1,37 +1,41 @@
 // These styles apply to every route in the application
-import type { AppProps } from 'next/app'
-import localFont from 'next/font/local'
+import type { AppProps } from "next/app"
+import localFont from "next/font/local"
 
-import '../styles/globals.css'
+import "../styles/globals.css"
+import Head from "next/head"
 
 const misans = localFont({
   src: [{
-    path: '../fonts/MiSans-Thin.ttf',
-    weight: '100',
-    style: 'thin',
+    path: "../fonts/MiSans-Thin.ttf",
+    weight: "100",
+    style: "thin",
   }, {
-    path: '../fonts/MiSans-Normal.ttf',
-    weight: '300',
-    style: 'normal',
+    path: "../fonts/MiSans-Normal.ttf",
+    weight: "300",
+    style: "normal",
   }, {
-    path: '../fonts/MiSans-Medium.ttf',
-    weight: '500',
-    style: 'medium',
+    path: "../fonts/MiSans-Medium.ttf",
+    weight: "500",
+    style: "medium",
   }, {
-    path: '../fonts/MiSans-Bold.ttf',
-    weight: '700',
-    style: 'bold',
+    path: "../fonts/MiSans-Bold.ttf",
+    weight: "700",
+    style: "bold",
   }, {
-    path: '../fonts/MiSans-Heavy.ttf',
-    weight: '900',
-    style: 'heavy',
+    path: "../fonts/MiSans-Heavy.ttf",
+    weight: "900",
+    style: "heavy",
   }]
 })
 
 export default function App({ Component, pageProps }: AppProps) {
-  return (
+  return (<>
+    <Head>
+      <link rel="shortcut icon" href="/icon.svg" />
+    </Head>
     <main className={misans.className}>
       <Component {...pageProps} />
     </main>
-  )
+  </>)
 }
