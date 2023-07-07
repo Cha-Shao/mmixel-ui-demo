@@ -28,6 +28,7 @@ const Card = forwardRef(function Card(
     <div
       ref={ref}
       className={classNames(
+        "m-card",
         props.className,
         "relative",
         "overflow-hidden",
@@ -42,6 +43,7 @@ const Card = forwardRef(function Card(
         <Title
           size={props.size}
           className={classNames(
+            "m-card-title",
             { "p-4 pb-0": size === "sm" },
             { "p-6 pb-0": size === "md" },
             { "p-8 pb-0": size === "lg" },
@@ -51,6 +53,7 @@ const Card = forwardRef(function Card(
       ) : props.title}
       {props.closeable && (
         <span className={classNames(
+          "m-card-close",
           "cursor-pointer",
           "absolute",
           { "top-4 right-4": size === "sm" },
@@ -62,6 +65,7 @@ const Card = forwardRef(function Card(
         </span>
       )}
       <div className={classNames(
+        "m-card-children",
         { "p-4": size === "sm" },
         { "p-6": size === "md" },
         { "p-8": size === "lg" },
@@ -70,6 +74,7 @@ const Card = forwardRef(function Card(
       </div>
       {props.footer && (
         <div className={classNames(
+          "m-card-footer",
           "bg-slate-800/10 dark:bg-slate-100/10",
           { "p-4": size === "sm" },
           { "p-6": size === "md" },

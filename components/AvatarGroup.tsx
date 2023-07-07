@@ -15,7 +15,7 @@ const AvatarGroup = forwardRef(function AvatarGroup(
   ref: ForwardedRef<HTMLDivElement>
 ) {
   return (
-    <div ref={ref} className="flex">
+    <div ref={ref} className="m-avatar-group flex">
       {Children.map(props.children, (child) => {
         return isValidElement<{
           rounded: boolean

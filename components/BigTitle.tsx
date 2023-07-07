@@ -16,6 +16,7 @@ const BigTitle = forwardRef(function BigTitle(
   const blurColor = props.blurColor || ["red", "#ff8729"]
   return (
     <div ref={ref} className={classNames(
+      "n-big-title",
       props.className,
       "relative w-fit",
     )}>

@@ -36,6 +36,7 @@ const Avatar = forwardRef(function Avatar(
     <div
       ref={ref}
       className={classNames(
+        "m-avatar",
         props.className,
         "overflow-hidden",
         "inline-block",
@@ -56,10 +57,10 @@ const Avatar = forwardRef(function Avatar(
         <Image src={props.src} alt={props.alt || ""}
           width={128} height={128}
           loading={lazy ? "lazy" : "eager"}
-          className="object-cover w-full h-full"
+          className="m-avatar-image object-cover w-full h-full"
           onError={props.onError} />
       ) : (
-        <div className="w-full h-full flex justify-center items-center overflow-hidden">
+        <div className="m-avatar-text w-full h-full flex justify-center items-center overflow-hidden">
           <span style={{
             scale: `${parseTextScale(props.text!)}`,
             color: props.textColor

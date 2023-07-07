@@ -11,6 +11,8 @@ interface Props extends
   delay?: number
   duration?: number
 
+  forcePage?: number
+
   arrowLeft?: ReactElement
   arrowRight?: ReactElement
   dots?: ReactElement
@@ -64,79 +66,101 @@ const Carousel = forwardRef(function Carousel(
     }
   }, [props.children])
 
-  return (<>
-    {/* 轮播区域 */}
-    <div ref={ref}
-      className={classNames(props.className, "overflow-hidden")}
-      onMouseEnter={() => { props.autoplay && clearAutoplay() }}
-      onMouseLeave={() => { props.autoplay && setAutoplay() }}
-    >
-      <div ref={carouselRef} className="flex h-full w-full" style={{
-        transform: `translateX(${page * -100}%)`,
-        transitionDelay: `${delay}ms`,
-        transitionDuration: `${duration}ms`,
-      }}>
-        {Children.map(props.children, (child, i) => {
-          return isValidElement<{ className: string }>(child)
-            ? <div key={i} className="w-full h-full shrink-0">{child}</div>
-            : child
-        })}
+  return (
+    <div className="relative">
+      {/* 轮播区域 */}
+      <div ref={ref}
+        className={classNames(
+          "m-carousel",
+          props.className,
+          "overflow-hidden",
+        )}
+        onMouseEnter={() => { props.autoplay && clearAutoplay() }}
+        onMouseLeave={() => { props.autoplay && setAutoplay() }}
+      >
+        <div ref={carouselRef} className="m-carousel-container flex h-full w-full" style={{
+          transform: `translateX(${(props.forcePage ?? page) * -100}%)`,
+          transitionDelay: `${delay}ms`,
+          transitionDuration: `${duration}ms`,
+        }}>
+          {Children.map(props.children, (child, i) => {
+            return isValidElement<{ className: string }>(child)
+              ? <div key={i} className="m-carousel-children w-full h-full shrink-0">{child}</div>
+              : child
+          })}
+        </div>
       </div>
+      {/* 向左箭头 */}
+      {(props.forcePage === undefined) && (props.arrowLeft
+        ? cloneElement(props.arrowLeft, {
+          className: classNames(
+            "m-carousel-arrow-left",
+            props.arrowLeft.props.className
+          ),
+          ...props.arrowLeft.props,
+          onClick: prevPage
+        }) : (
+          <Button square type="secondary" size="lg"
+            className="!bg-gray-800/20 text-white absolute bottom-6 left-[1.5rem]"
+            onClick={prevPage}>
+            <LeftIcon />
+          </Button>
+        ))}
+      {/* 向右箭头 */}
+      {(props.forcePage === undefined) && (props.arrowRight
+        ? cloneElement(props.arrowRight, {
+          className: classNames(
+            "m-carousel-arrow-right",
+            props.arrowRight.props.className
+          ),
+          ...props.arrowRight.props,
+          onClick: nextPage
+        }) : (
+          <Button square type="secondary" size="lg"
+            className="!bg-gray-800/20 text-white absolute bottom-6 left-[4.5rem]"
+            onClick={nextPage}>
+            <RightIcon />
+          </Button>
+        ))}
+      {/* 轮播进度 */}
+      {!props.forcePage && cloneElement(props.dots
+        ? props.dots
+        : <div className="m-carousel-dots flex absolute bottom-10 right-6" />,
+        { ...props.dots?.props },
+        Array(maxPage).fill(null).map((_, i) =>
+          i === (props.forcePage ?? page)
+            // 高亮进度
+            ? props.dotAction
+              ? cloneElement(props.dotAction, {
+                className: classNames(
+                  "m-carousel-dot-action",
+                  props.dotAction.props.className,
+                ),
+                ...props.dotAction.props,
+                key: i,
+                onClick: () => { setPage(i) }
+              })
+              : <span
+                key={i}
+                onClick={() => { setPage(i) }}
+                className="m-carousel-dot-action w-2 h-2 rounded-full mx-1 bg-white" />
+            // 默认进度
+            : props.dotDefault
+              ? cloneElement(props.dotDefault, {
+                className: classNames(
+                  "m-carousel-dot-default",
+                  props.dotDefault.props.className
+                ),
+                ...props.dotDefault.props,
+                key: i,
+                onClick: () => { setPage(i) }
+              })
+              : <span
+                key={i}
+                onClick={() => { setPage(i) }}
+                className="m-carousel-dot-action w-2 h-2 rounded-full mx-1 bg-white/50" />))}
     </div>
-    {/* 向左箭头 */}
-    {props.arrowLeft
-      ? cloneElement(props.arrowLeft, {
-        ...props.arrowLeft.props,
-        onClick: prevPage
-      }) : (
-        <Button square type="secondary" size="lg"
-          className="!bg-gray-800/20 text-white absolute bottom-6 left-[1.5rem]"
-          onClick={prevPage}>
-          <LeftIcon />
-        </Button>
-      )}
-    {/* 向右箭头 */}
-    {props.arrowRight
-      ? cloneElement(props.arrowRight, {
-        ...props.arrowRight.props,
-        onClick: prevPage
-      }) : (
-        <Button square type="secondary" size="lg"
-          className="!bg-gray-800/20 text-white absolute bottom-6 left-[4.5rem]"
-          onClick={nextPage}>
-          <RightIcon />
-        </Button>
-      )}
-    {/* 轮播进度 */}
-    {cloneElement(props.dots
-      ? props.dots
-      : <div className="flex absolute bottom-10 right-6" />,
-      { ...props.dots?.props },
-      Array(maxPage).fill(null).map((_, i) =>
-        i === page
-          // 高亮进度
-          ? props.dotAction
-            ? cloneElement(props.dotAction, {
-              ...props.dotAction.props,
-              key: i,
-              onClick: () => { setPage(i) }
-            })
-            : <span
-              key={i}
-              onClick={() => { setPage(i) }}
-              className="w-2 h-2 rounded-full mx-1 bg-white" />
-          // 默认进度
-          : props.dotDefault
-            ? cloneElement(props.dotDefault, {
-              ...props.dotDefault.props,
-              key: i,
-              onClick: () => { setPage(i) }
-            })
-            : <span
-              key={i}
-              onClick={() => { setPage(i) }}
-              className="w-2 h-2 rounded-full mx-1 bg-white/50" />))}
-  </>)
+  )
 })
 
 export default Carousel

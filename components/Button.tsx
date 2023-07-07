@@ -43,6 +43,7 @@ const Button = forwardRef(function Button(
       ref={ref}
       disabled={props.disabled || props.loading}
       className={classNames(
+        "m-button",
         props.className,
         // 形状
         props.rounded
@@ -89,6 +90,7 @@ const Button = forwardRef(function Button(
 
       {(props.icon || props.loading) && (
         <span className={classNames(
+          "m-button-icon",
           { "mr-1": props.children },
           { "animate-spin": props.loading }
         )}>
@@ -98,7 +100,7 @@ const Button = forwardRef(function Button(
         </span>
       )}
 
-      <span>{props.children}</span>
+      <span className="m-button-children">{props.children}</span>
     </button >
   )
 })
