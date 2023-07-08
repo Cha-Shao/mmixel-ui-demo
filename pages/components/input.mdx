@@ -1,0 +1,101 @@
+import Input from "../../components/Input"
+import { useState } from "react"
+
+export const ShowCount = () => {
+  const [inputTitle, setInputTitle] = useState("")
+  const [inputValue, setInputValue] = useState("")
+  return (<>
+    <Input value={inputTitle} setValue={setInputTitle} placeholder="我的妈妈" showCount />
+    <br/>
+    <Input value={inputValue} setValue={setInputValue} placeholder="我的妈妈是一个..." maxLength={800} showCount />
+  </>)
+}
+
+# 输入 Input
+
+看起来这里应该写点什么
+
+### 默认
+
+最普通的输入
+
+<br/>
+
+<Input placeholder="最普通的输入" setValue={()=>{}}/>
+
+### 密码
+
+我闭上眼睛不看
+
+<br/>
+
+<Input placeholder="密码" setValue={()=>{}} type="password"/>
+
+### 默认值
+
+提前输入 `value` 可以更改默认值
+
+<br/>
+
+<Input placeholder="你好" value="我叫阿杰" setValue={()=>{}} />
+
+### 形状
+
+使用 `rounded` 更改形状
+
+<br/>
+
+<Input placeholder="圆的" setValue={()=>{}} rounded />
+
+### 禁用
+
+使用 `disabled` 禁用输入
+
+<br/>
+
+<Input placeholder="已禁用" setValue={()=>{}} disabled />
+
+### 限制输入
+
+规定只能写什么
+
+<br/>
+
+<Input setValue={()=>{}} placeholder="只能写5个字" maxLength={5} />
+<br/>
+<Input setValue={()=>{}} placeholder="只能写数字" onlyNumber />
+
+### 显示字数
+
+写作文时绞尽脑汁凑800字
+
+<br/>
+
+<ShowCount />
+
+### 前缀后缀
+
+给组件添加前缀后缀
+
+<br/>
+
+<Input setValue={()=>{}} placeholder="价格" prefix={<p>￥</p>}/>
+<br/>
+<Input setValue={()=>{}} placeholder="搜索" suffix={<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M11 2c4.968 0 9 4.032 9 9s-4.032 9-9 9s-9-4.032-9-9s4.032-9 9-9Zm0 16c3.867 0 7-3.133 7-7s-3.133-7-7-7s-7 3.133-7 7s3.133 7 7 7Zm8.485.071l2.829 2.828l-1.415 1.415l-2.828-2.829l1.414-1.414Z"/></svg>}/>
+
+### 回调
+
+组件有多个回调
+
+- `onEnter`: 按下回车时
+- `onFocus`: 聚焦组件时
+- `onBlur`: 组件失焦时
+- `onType`: 组件输入时
+
+<br/>
+
+<Input placeholder="干点什么" setValue={()=>{}} 
+  onEnter={()=>{console.log("onEnter")}}
+  onFocus={()=>{console.log("onFocus")}}
+  onBlur={()=>{console.log("onBlur")}}
+  onType={()=>{console.log("onType")}} />

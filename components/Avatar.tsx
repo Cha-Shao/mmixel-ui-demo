@@ -46,7 +46,7 @@ const Avatar = forwardRef(function Avatar(
         "inline-block",
         props.rounded ? "rounded-full" : "rounded-md",
         "bg-slate-200 dark:bg-gray-800",
-        { "outline outline-3 outline-offset-2": props.bordered },
+        { "outline outline-[0.15rem] outline-offset-2": props.bordered },
         // 大小
         { "w-8 h-8 text-xs": size === "ty" },
         { "w-10 h-10 text-sm": size === "sm" },

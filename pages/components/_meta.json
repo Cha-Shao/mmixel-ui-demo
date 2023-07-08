@@ -3,8 +3,9 @@
   "button": "按钮 Button",
   "card": "卡片 Card",
   "carousel": "轮播 Carousel",
-  "title": "标题 Title",
   "collapse": "折叠面板 Collapse",
   "dropdown": "下拉菜单 Dropdown",
-  "tag": "标签 Tag"
+  "input": "输入 Input",
+  "tag": "标签 Tag",
+  "title": "标题 Title"
 }

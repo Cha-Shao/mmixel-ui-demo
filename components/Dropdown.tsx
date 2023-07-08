@@ -50,7 +50,7 @@ const Dropdown = (props: Props) => {
               { "pb-2 bottom-full -left-1/4 -translate-x-1/2 -translate-y-full": direction === "top" },
               { "pt-2 top-full -left-1/4 -translate-x-1/2": direction === "bottom" },
             )}>
-            <div className="m-dropdown-children rounded-xl overflow-hidden shadow-md border border-ldv dark:border-ddv">
+            <div className="m-dropdown-children rounded-xl overflow-hidden shadow-md border dark:border-zinc-700">
               {props.children}
             </div>
           </motion.div>
