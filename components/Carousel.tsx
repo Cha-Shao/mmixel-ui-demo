@@ -28,7 +28,7 @@ interface Props extends
   arrowLeft?: ReactElement
   arrowRight?: ReactElement
   dots?: ReactElement
-  dotAction?: ReactElement
+  dotActive?: ReactElement
   dotDefault?: ReactElement
 }
 
@@ -142,13 +142,13 @@ const Carousel = forwardRef(function Carousel(
         Array(maxPage).fill(null).map((_, i) =>
           i === (props.forcePage ?? page)
             // 高亮进度
-            ? props.dotAction
-              ? cloneElement(props.dotAction, {
+            ? props.dotActive
+              ? cloneElement(props.dotActive, {
                 className: classNames(
                   "m-carousel-dot-action",
-                  props.dotAction.props.className,
+                  props.dotActive.props.className,
                 ),
-                ...props.dotAction.props,
+                ...props.dotActive.props,
                 key: i,
                 onClick: () => { setPage(i) }
               })

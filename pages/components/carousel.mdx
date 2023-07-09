@@ -181,7 +181,7 @@ export const CarouselExample = async () => {
   arrowLeft={<p className="absolute text-3xl select-none cursor-pointer bottom-6 left-[1.5rem]">⬅️</p>} 
   arrowRight={<p className="absolute text-3xl select-none cursor-pointer bottom-6 left-[4.5rem]">➡️</p>}
   dots={<span className="absolute bottom-6 right-6 flex bg-pink-400/50 rounded-md"/>}
-  dotAction={<p>🥰</p>}
+  dotActive={<p>🥰</p>}
   dotDefault={<p className="cursor-pointer">😴</p>}>
   <Image
     src="/carousel/8db06cb6918f35ad86512810c01aa38815b1d6bb0aab60526737647ec4a343d2.png"
@@ -222,7 +222,7 @@ export const CarouselExample = async () => {
     <Carousel 
       arrowLeft={<p className="absolute text-3xl select-none cursor-pointer bottom-6 left-[1.5rem]">⬅️</p>} 
       arrowRight={<p className="absolute text-3xl select-none cursor-pointer bottom-6 left-[4.5rem]">➡️</p>}
-      dotAction={<p>🥰</p>}
+      dotActive={<p>🥰</p>}
       dotDefault={<p className="cursor-pointer">😴</p>}>
       {images.map((image, i) => (
         <Image
@@ -311,5 +311,5 @@ export const CustomCarousel = () => {
 | arrowLeft  | `ReactElement` | `undefined` | 自定义控件的左箭头         |
 | arrowRight | `ReactElement` | `undefined` | 自定义控件的右箭头         |
 | dots       | `ReactElement` | `undefined` | 自定义控件的指示器容器     |
-| dotAction  | `ReactElement` | `undefined` | 自定义控件的高亮指示器     |
+| dotActive  | `ReactElement` | `undefined` | 自定义控件的高亮指示器     |
 | dotDefault | `ReactElement` | `undefined` | 自定义控件的默认指示器     |

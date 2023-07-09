@@ -64,8 +64,8 @@ const Avatar = forwardRef(function Avatar(
           className="m-avatar-image object-cover w-full h-full"
           onError={props.onError} />
       ) : (
-        <div className="m-avatar-text w-full h-full flex justify-center items-center overflow-hidden">
-          <span style={{
+        <div className="m-avatar-text-container w-full h-full flex justify-center items-center overflow-hidden">
+          <span className="m-avatar-text" style={{
             scale: `${parseTextScale(props.text!)}`,
             color: props.textColor
           }}>{props.text}</span>

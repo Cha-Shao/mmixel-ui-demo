@@ -2,12 +2,12 @@ import Input from "../../components/Input"
 import { useState } from "react"
 
 export const ShowCount = () => {
-  const [inputTitle, setInputTitle] = useState("")
-  const [inputValue, setInputValue] = useState("")
+  const [title, setTitle] = useState("")
+  const [composition, setComposition] = useState("")
   return (<>
-    <Input value={inputTitle} setValue={setInputTitle} placeholder="我的妈妈" showCount />
+    <Input value={title} setValue={setTitle} placeholder="我的妈妈" showCount />
     <br/>
-    <Input value={inputValue} setValue={setInputValue} placeholder="我的妈妈是一个..." maxLength={800} showCount />
+    <Input value={composition} setValue={setComposition} placeholder="我的妈妈是一个..." maxLength={800} showCount />
   </>)
 }
 
@@ -21,7 +21,21 @@ export const ShowCount = () => {
 
 <br/>
 
-<Input placeholder="最普通的输入" setValue={()=>{}}/>
+<Input placeholder="用户名" setValue={()=>{}}/>
+
+```tsx copy
+import { useState } from "react"
+import { Input } from "mmixel-ui"
+
+const InputUsername = () => {
+  const [username, setUsername] = useState("")
+  return (
+    <Input placeholder="用户名" value={username} setValue={setUsername} />
+  )
+}
+
+export default InputUsername
+```
 
 ### 密码
 
@@ -31,6 +45,24 @@ export const ShowCount = () => {
 
 <Input placeholder="密码" setValue={()=>{}} type="password"/>
 
+```tsx copy
+import { useState } from "react"
+import { Input } from "mmixel-ui"
+
+const InputPassword = () => {
+  const [password, setPassword] = useState("")
+  return (
+    <Input 
+      placeholder="密码" 
+      type="password"
+      value={password}
+      setValue={setPassword} />
+  )
+}
+
+export default InputPassword
+```
+
 ### 默认值
 
 提前输入 `value` 可以更改默认值
@@ -38,6 +70,23 @@ export const ShowCount = () => {
 <br/>
 
 <Input placeholder="你好" value="我叫阿杰" setValue={()=>{}} />
+
+```tsx copy
+import { useState } from "react"
+import { Input } from "mmixel-ui"
+
+const InputLabel = () => {
+  const [label, setLabel] = useState("我叫阿杰")
+  return (
+    <Input 
+      placeholder="你好" 
+      value={label}
+      setValue={setLabel} />
+  )
+}
+
+export default InputLabel
+```
 
 ### 形状
 
@@ -47,6 +96,24 @@ export const ShowCount = () => {
 
 <Input placeholder="圆的" setValue={()=>{}} rounded />
 
+```tsx copy
+import { useState } from "react"
+import { Input } from "mmixel-ui"
+
+const InputLabel = () => {
+  const [label, setLabel] = useState("")
+  return (
+    <Input
+      rounded
+      placeholder="圆的" 
+      value={label}
+      setValue={setLabel} />
+  )
+}
+
+export default InputLabel
+```
+
 ### 禁用
 
 使用 `disabled` 禁用输入
@@ -54,6 +121,24 @@ export const ShowCount = () => {
 <br/>
 
 <Input placeholder="已禁用" setValue={()=>{}} disabled />
+
+```tsx copy
+import { useState } from "react"
+import { Input } from "mmixel-ui"
+
+const InputLabel = () => {
+  const [label, setLabel] = useState("")
+  return (
+    <Input
+      disabled
+      placeholder="已禁用" 
+      value={label}
+      setValue={setLabel} />
+  )
+}
+
+export default InputLabel
+```
 
 ### 限制输入
 
@@ -65,6 +150,31 @@ export const ShowCount = () => {
 <br/>
 <Input setValue={()=>{}} placeholder="只能写数字" onlyNumber />
 
+```tsx copy
+import { useState } from "react"
+import { Input } from "mmixel-ui"
+
+const InputLabel = () => {
+  const [content, setContent] = useState("")
+  const [phone, setPhone] = useState("")
+  return (<>
+    <Input
+      maxLength={5}
+      placeholder="只能写5个字" 
+      value={label}
+      setValue={setLabel} />
+    <br/>
+    <Input
+      onlyNumber
+      placeholder="只能写数字" 
+      value={phone}
+      setValue={setPhone} />
+  </>)
+}
+
+export default InputLabel
+```
+
 ### 显示字数
 
 写作文时绞尽脑汁凑800字
@@ -72,6 +182,29 @@ export const ShowCount = () => {
 <br/>
 
 <ShowCount />
+
+```tsx copy
+const InputComposition = () => {
+  const [title, setTitle] = useState("")
+  const [composition, setComposition] = useState("")
+  return (<>
+    <Input 
+      showCount
+      placeholder="我的妈妈" 
+      value={title} 
+      setValue={setTitle} />
+    <br/>
+    <Input
+      showCount
+      maxLength={800} 
+      placeholder="我的妈妈是一个..."
+      value={composition} 
+      setValue={setComposition} />
+  </>)
+}
+
+export default InputComposition
+```
 
 ### 前缀后缀
 
@@ -82,6 +215,28 @@ export const ShowCount = () => {
 <Input setValue={()=>{}} placeholder="价格" prefix={<p>￥</p>}/>
 <br/>
 <Input setValue={()=>{}} placeholder="搜索" suffix={<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M11 2c4.968 0 9 4.032 9 9s-4.032 9-9 9s-9-4.032-9-9s4.032-9 9-9Zm0 16c3.867 0 7-3.133 7-7s-3.133-7-7-7s-7 3.133-7 7s3.133 7 7 7Zm8.485.071l2.829 2.828l-1.415 1.415l-2.828-2.829l1.414-1.414Z"/></svg>}/>
+
+```tsx copy
+const InputPrefixSuffix = () => {
+  const [prize, setPrize] = useState("")
+  const [keyword, setKeyword] = useState("")
+  return (<>
+    <Input 
+      prefix={<p>￥</p>}
+      placeholder="价格"
+      value={prize} 
+      setValue={setPrize} />
+    <br/>
+    <Input
+      suffix={<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M11 2c4.968 0 9 4.032 9 9s-4.032 9-9 9s-9-4.032-9-9s4.032-9 9-9Zm0 16c3.867 0 7-3.133 7-7s-3.133-7-7-7s-7 3.133-7 7s3.133 7 7 7Zm8.485.071l2.829 2.828l-1.415 1.415l-2.828-2.829l1.414-1.414Z"/></svg>}
+      placeholder="搜索"
+      value={keyword} 
+      setValue={setKeyword} />
+  </>)
+}
+
+export default InputPrefixSuffix
+```
 
 ### 回调
 
@@ -99,3 +254,40 @@ export const ShowCount = () => {
   onFocus={()=>{console.log("onFocus")}}
   onBlur={()=>{console.log("onBlur")}}
   onType={()=>{console.log("onType")}} />
+
+```tsx copy
+const InputCallback = () => {
+  const [label, setLabel] = useState("")
+  return (<>
+    <Input 
+      placeholder="干点什么"
+      onEnter={()=>{console.log("onEnter")}}
+      onFocus={()=>{console.log("onFocus")}}
+      onBlur={()=>{console.log("onBlur")}}
+      onType={()=>{console.log("onType")}} 
+      value={label}
+      setValue={setLabel} />
+  </>)
+}
+
+export default InputCallback
+```
+
+### Input Props
+
+| Prop       | Type                               | Default     | Desc                           |
+| :--------- | :--------------------------------- | :---------- | :----------------------------- |
+| value      | `string`                           | `undefined` | 输入的值                       |
+| setValue   | `Dispatch<SetStateAction<string>>` | `undefined` | 改变值的方法                   |
+| rounded    | `boolean`                          | `false`     | 组件是否圆形                   |
+| disabled   | `boolean`                          | `false`     | 组件是否被禁用                 |
+| type       | `"text" \| "password"`             | `"text"`    | 组件的类型                     |
+| maxLength  | `number`                           | `undefined` | 组件最大输入字数               |
+| onlyNumber | `boolean`                          | `false`     | 组件是否只允许输入数字         |
+| showCount  | `boolean`                          | `false`     | 组件是否显示已输入的字数       |
+| prefix     | `ReactNode`                        | `undefined` | 组件前缀                       |
+| suffix     | `ReactNode`                        | `undefined` | 组件后缀                       |
+| onEnter    | `() => void`                       | `undefined` | 按下`Enter`时的回调            |
+| onFocus    | `() => void`                       | `undefined` | 组件被对焦时的回调             |
+| onBlur     | `() => void`                       | `undefined` | 组件在失焦时的回调             |
+| onType     | `() => void`                       | `undefined` | 组件在输入时的回调（值更新时） |

@@ -1,8 +1,10 @@
 "use client"
 import React, {
+  ForwardedRef,
   HTMLAttributes,
   PropsWithChildren,
   ReactElement,
+  forwardRef,
   useState
 } from "react"
 import {
@@ -19,7 +21,10 @@ interface Props extends
   direction?: "top" | "bottom"
 }
 
-const Dropdown = (props: Props) => {
+const Dropdown = forwardRef(function Dropdown(
+  props: Props,
+  ref: ForwardedRef<HTMLDivElement>
+) {
   const {
     listen = "hover",
     direction = "bottom",
@@ -27,7 +32,7 @@ const Dropdown = (props: Props) => {
   const [visible, setVisible] = useState(false)
 
   return (
-    <div className={classNames(
+    <div ref={ref} className={classNames(
       "m-dropdown",
       props.className,
       "relative w-fit",
@@ -58,6 +63,6 @@ const Dropdown = (props: Props) => {
       </AnimatePresence>
     </div>
   )
-}
+})
 
 export default Dropdown

@@ -1,0 +1,39 @@
+import Radio from "../../components/Radio"
+import { useState } from "react"
+
+export const RadioSize = () => {
+  const [size, setSize] = useState("")
+  return (<>
+    <span>已选择：{size}</span>
+    <br/>
+    <Radio
+      size="sm"
+      checked={size === "S"} 
+      name="size" 
+      value="S" 
+      setValue={setSize}>小</Radio>
+    <Radio
+      checked={size === "M"} 
+      name="size"
+      value="M"
+      setValue={setSize}>中</Radio>
+    <Radio
+      size="lg"
+      checked={size === "L"} 
+      name="size"
+      value="L"
+      setValue={setSize}>大</Radio>
+  </>)
+}
+
+# 单选 Radio
+
+到做抉择的时候了
+
+### 大小
+
+你喜欢什么大小
+
+<br/>
+
+<RadioSize />
