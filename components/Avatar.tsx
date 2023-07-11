@@ -6,6 +6,7 @@ import {
   HTMLAttributes,
   forwardRef
 } from "react"
+import AvatarGroup from "./AvatarGroup"
 
 interface Props extends HTMLAttributes<HTMLSpanElement> {
   src?: string
@@ -75,4 +76,8 @@ const Avatar = forwardRef(function Avatar(
   )
 })
 
-export default Avatar
+type AvatarComponent = typeof Avatar & {
+  Group: typeof AvatarGroup
+}
+
+export default Avatar as AvatarComponent

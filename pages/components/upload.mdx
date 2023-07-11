@@ -1,0 +1,85 @@
+import { Upload, Button, Card } from "../../components"
+import { useState } from "react"
+
+export const UploadDefault = () => {
+  const [files, setFiles] = useState([])
+  return (
+    <Upload
+      files={files}
+      setFiles={setFiles}
+      accept="image/png, image/webp, image/jpeg">
+      <Button>上传文件</Button>
+    </Upload>
+  )
+}
+export const UploadMultiple = () => {
+  const [files, setFiles] = useState([])
+  return (
+    <Upload files={files} setFiles={setFiles} multiple max={3}>
+      <Button>上传文件</Button>
+    </Upload>
+  )
+}
+export const UploadDrag = () => {
+  const [files, setFiles] = useState([])
+  return (
+    <Upload
+      files={files}
+      setFiles={setFiles}
+      multiple
+      drag
+      onUpload={e => {
+        console.log(e)
+      }}
+      onRemove={e => {
+        console.log(e)
+      }}>
+      <Card bordered className="duration-200 hover:border-[#ff8729]">
+        <div className="flex flex-col items-center">
+          📦
+          <p>点击或拖动文件到此处上传</p>
+        </div>
+      </Card>
+    </Upload>
+  )
+}
+
+# 上传 Upload
+
+本次传输速度：7GB/s，消耗 1 个自行车轮胎和 2 个馒头！
+
+### 基础
+
+最基本的文件上传
+
+<br />
+
+<UploadDefault />
+
+### 多文件
+
+可以携带多个文件
+
+<br />
+
+<UploadMultiple />
+
+### 拖拽上传
+
+可以将文件直接拖过来上传
+
+<UploadDrag />
+
+### Upload Props
+
+| Prop     | Type                               | Default     | Desc                                                                                                   |
+| :------- | :--------------------------------- | :---------- | :----------------------------------------------------------------------------------------------------- |
+| files    | `File[]`                           | `[]`        | 文件列表                                                                                               |
+| setFiles | `Dispatch<SetStateAction<File[]>>` | `undefined` | 改变文件列表的方法                                                                                     |
+| accept   | `string`                           | `undefined` | 期望的文件类型 [MDN 文档](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) |
+| multiple | `boolean`                          | `false`     | 是否可以上传多个文件                                                                                   |
+| drag     | `boolean`                          | `false`     | 是否可以拖拽上传                                                                                       |
+| max      | `number`                           | `undefined` | 最多可以携带多少个文件                                                                                 |
+| disabled | `boolean`                          | `false`     | 是否禁用                                                                                               |
+| onUpload | `(files: File[]) => void`          | `undefined` | 上传新文件时的回调                                                                                     |
+| onRemove | `(file: File) => void`             | `undefined` | 移除文件时的回调                                                                                       |

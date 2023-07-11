@@ -1,39 +1,93 @@
 import Radio from "../../components/Radio"
 import { useState } from "react"
 
-export const RadioSize = () => {
-  const [size, setSize] = useState("")
-  return (<>
-    <span>已选择：{size}</span>
-    <br/>
-    <Radio
-      size="sm"
-      checked={size === "S"} 
-      name="size" 
-      value="S" 
-      setValue={setSize}>小</Radio>
-    <Radio
-      checked={size === "M"} 
-      name="size"
-      value="M"
-      setValue={setSize}>中</Radio>
-    <Radio
-      size="lg"
-      checked={size === "L"} 
-      name="size"
-      value="L"
-      setValue={setSize}>大</Radio>
-  </>)
+export const RadioDefault = () => {
+  const [gender, setGender] = useState("Helicopter")
+  return (
+    <>
+      <span>已选择：{gender}</span>
+      <br />
+      <Radio
+        checked={gender === "Male"}
+        name="gender"
+        value="Male"
+        setValue={setGender}>
+        男
+      </Radio>
+      <Radio
+        checked={gender === "Female"}
+        name="gender"
+        value="Female"
+        setValue={setGender}>
+        女
+      </Radio>
+      <Radio
+        checked={gender === "Email"}
+        name="gender"
+        value="Email"
+        setValue={setGender}>
+        电子邮件
+      </Radio>
+    </>
+  )
+}
+export const RadioDisabled = () => {
+  const [hobby, setHobby] = useState("")
+  return (
+    <>
+      <br />
+      <Radio
+        checked={hobby === "Ski"}
+        name="hobby"
+        value="Ski"
+        setValue={setHobby}>
+        滑雪
+      </Radio>
+      <Radio
+        checked={hobby === "Jump"}
+        name="hobby"
+        value="Jump"
+        setValue={setHobby}>
+        跳伞
+      </Radio>
+      <Radio
+        disabled
+        checked={hobby === "Fly"}
+        name="hobby"
+        value="Fly"
+        setValue={setHobby}>
+        翼装飞行
+      </Radio>
+    </>
+  )
 }
 
 # 单选 Radio
 
 到做抉择的时候了
 
-### 大小
+### 默认
 
-你喜欢什么大小
+请问您的性别是？
 
-<br/>
+<br />
 
-<RadioSize />
+<RadioDefault />
+
+### 禁用
+
+有些事情总是不尽人意
+
+<RadioDisabled />
+
+### Radio Props
+
+| Prop     | Type                                | Default     | Desc           |
+| :------- | :---------------------------------- | :---------- | :------------- |
+| checked  | `boolean`                           | `false`     | 是否被选中     |
+| name     | `string`                            | `undefined` | 组件所属组     |
+| value    | `any`                               | `undefined` | 组件的值       |
+| setValue | `Dispatch<SetStateAction<boolean>>` | `undefined` | 改变值的方法   |
+| color    | `string`                            | `"#ff8729"` | 默认颜色       |
+| disabled | `boolean`                           | `false`     | 是否禁用       |
+| onChange | `(value: string) => void`           | `undefined` | 更改值时的回调 |

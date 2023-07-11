@@ -4,6 +4,12 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import Card from "../components/Card"
 import Carousel from "../components/Carousel"
 import Image from "next/image"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "MMixel UI",
+  description: "An UI library for react."
+}
 
 const TailwindCSSLink = () => {
   return (
@@ -94,7 +100,7 @@ export default function Page() {
                 key={i}
                 src={`/carousel${image}`}
                 className="w-full object-cover" alt=""
-                width={720} height={405} />
+                width={1280} height={720} />
             ))}
           </Carousel>
         </div>

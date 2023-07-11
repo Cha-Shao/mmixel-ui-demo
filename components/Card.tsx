@@ -8,6 +8,7 @@ import {
 } from "react"
 import { Size } from "./types"
 import Title from "./Title"
+import { Close, Icon } from "./Icons"
 
 interface Props extends
   PropsWithChildren,
@@ -19,10 +20,6 @@ interface Props extends
   shadow?: boolean
   closeable?: boolean
   onClose?: () => void
-}
-
-const CloseIcon = () => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 10.586l4.95-4.95l1.415 1.415l-4.95 4.95l4.95 4.95l-1.415 1.414l-4.95-4.95l-4.95 4.95l-1.413-1.415l4.95-4.95l-4.95-4.95L7.05 5.638l4.95 4.95Z" /></svg>
 }
 
 const Card = forwardRef(function Card(
@@ -67,7 +64,7 @@ const Card = forwardRef(function Card(
           { "top-8 right-8": size === "lg" },
         )}
           onClick={props.onClose}>
-          <CloseIcon />
+          <Icon icon={Close} />
         </span>
       )}
       <div className={classNames(

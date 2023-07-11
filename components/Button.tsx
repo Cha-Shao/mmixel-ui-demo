@@ -8,6 +8,7 @@ import {
 } from "react"
 import classNames from "classnames"
 import { FullSize } from "./types"
+import ButtonGroup from "./ButtonGroup"
 
 interface Props extends
   PropsWithChildren,
@@ -36,17 +37,23 @@ const Button = forwardRef(function Button(
   props: Props,
   ref: ForwardedRef<HTMLButtonElement>
 ) {
-  const type = props.type || "default"
-  const size = props.size || "md"
+  const {
+    type = "default",
+    size = "md",
+    rounded = false,
+    square = false,
+    disabled = false,
+    loading = false,
+  } = props
   return (
     <button
       ref={ref}
-      disabled={props.disabled || props.loading}
+      disabled={disabled || loading}
       className={classNames(
         "m-button",
         props.className,
         // 形状
-        props.rounded
+        rounded
           ? "rounded-full"
           : classNames(
             { "rounded-sm": size === "ty" },
@@ -55,7 +62,7 @@ const Button = forwardRef(function Button(
             { "rounded-md": size === "lg" },
             { "rounded-lg": size === "xl" }
           ),
-        props.square ? classNames(
+        square ? classNames(
           { "w-5": size === "ty" },
           { "w-6": size === "sm" },
           { "w-8": size === "md" },
@@ -69,13 +76,14 @@ const Button = forwardRef(function Button(
           { "px-6": size === "xl" },
         ),
         // 加载时透明和取消动效，更改鼠标样式
-        (props.disabled || props.loading)
-          ? `opacity-80 ${props.loading ? "cursor-wait" : "cursor-no-drop"}`
+        (disabled || loading)
+          ? `opacity-80 ${loading ? "cursor-wait" : "cursor-no-drop"}`
           : "active:scale-95 active:brightness-95 hover:brightness-110",
         // 样式
         { "border-2 border-slate-800/10 dark:border-slate-100/10": type === "default" },
         { "bg-[#ff8729] text-white shadow-md shadow-[#ff8729]/25": type === "primary" },
         { "bg-slate-800/10 dark:bg-slate-100/10": type === "secondary" },
+        { "hover:bg-slate-500/10": type === "ghost" },
         // 大小，padding在上面square的地方
         { "h-5 text-xs": size === "ty" },
         { "h-6 text-sm": size === "sm" },
@@ -88,13 +96,13 @@ const Button = forwardRef(function Button(
       )}
       onClick={props.onClick} >
 
-      {(props.icon || props.loading) && (
+      {(props.icon || loading) && (
         <span className={classNames(
           "m-button-icon",
           { "mr-1": props.children },
-          { "animate-spin": props.loading }
+          { "animate-spin": loading }
         )}>
-          {props.loading
+          {loading
             ? <LoadingIcon size={size} />
             : props.icon}
         </span>
@@ -105,4 +113,8 @@ const Button = forwardRef(function Button(
   )
 })
 
-export default Button
+type ButtonComponent = typeof Button & {
+  Group: typeof ButtonGroup
+}
+
+export default Button as ButtonComponent

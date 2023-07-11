@@ -1,0 +1,91 @@
+import Checkbox from "../../components/Checkbox"
+import { useState } from "react"
+
+export const CheckboxDefault = () => {
+  const [server, setServer] = useState(false)
+  return (
+    <>
+      <Checkbox checked={server} setValue={setServer}>
+        便宜
+      </Checkbox>
+      <Checkbox checked={server} setValue={setServer}>
+        快速
+      </Checkbox>
+      <Checkbox checked={server} setValue={setServer}>
+        稳定
+      </Checkbox>
+    </>
+  )
+}
+export const CheckboxDisabled = () => {
+  const [server, setServer] = useState(false)
+  return (
+    <>
+      <Checkbox checked={server} setValue={setServer}>
+        便宜
+      </Checkbox>
+      <Checkbox checked={server} setValue={setServer}>
+        快速
+      </Checkbox>
+      <Checkbox checked={false} setValue={setServer} disabled>
+        稳定
+      </Checkbox>
+    </>
+  )
+}
+export const CheckboxCallback = () => {
+  const [checked, setChecked] = useState(false)
+  const handleCheck = checked => {
+    console.log(checked)
+  }
+  return (
+    <>
+      <Checkbox
+        checked={checked}
+        setValue={setChecked}
+        onCheck={handleCheck}
+        onUncheck={handleCheck}>
+        点我
+      </Checkbox>
+    </>
+  )
+}
+
+# 复选框 Checkbox
+
+我全都要
+
+### 默认
+
+客官要挑一台什么样的服务器呢~
+
+<br />
+
+<CheckboxDefault />
+
+### 禁用
+
+你的意思是想要便宜快速稳定的服务器？
+
+<br />
+
+<CheckboxDisabled />
+
+### 回调
+
+可以设置点击之后的事件
+
+<br />
+
+<CheckboxCallback />
+
+### Checkbox Props
+
+| Prop      | Type                                | Default     | Desc             |
+| :-------- | :---------------------------------- | :---------- | :--------------- |
+| checked   | `boolean`                           | `undefined` | 是否被选中       |
+| setValue  | `Dispatch<SetStateAction<boolean>>` | `undefined` | 改变值的方法     |
+| color     | `string`                            | `"#ff8729"` | 默认颜色         |
+| disabled  | `boolean`                           | `false`     | 是否禁用         |
+| onCheck   | `(checked: boolean) => void`        | `undefined` | 选中时的回调     |
+| onUncheck | `(checked: boolean) => void`        | `undefined` | 取消选中时的回调 |

@@ -14,6 +14,7 @@ import {
   useState
 } from "react"
 import Button from "./Button"
+import { Icon, LeftArrow, RightArrow } from "./Icons"
 
 interface Props extends
   PropsWithChildren,
@@ -30,13 +31,6 @@ interface Props extends
   dots?: ReactElement
   dotActive?: ReactElement
   dotDefault?: ReactElement
-}
-
-export const LeftIcon = () => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" ><path fill="currentColor" d="m10.828 12l4.95 4.95l-1.414 1.415L8 12l6.364-6.364l1.414 1.414l-4.95 4.95Z" /></svg>
-}
-export const RightIcon = () => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" ><path fill="currentColor" d="m13.171 12l-4.95-4.95l1.415-1.413L16 12l-6.364 6.364l-1.414-1.415l4.95-4.95Z" /></svg>
 }
 
 const Carousel = forwardRef(function Carousel(
@@ -115,7 +109,7 @@ const Carousel = forwardRef(function Carousel(
           <Button square type="secondary" size="lg"
             className="!bg-gray-800/20 text-white absolute bottom-6 left-[1.5rem]"
             onClick={prevPage}>
-            <LeftIcon />
+            <Icon icon={LeftArrow} size={64}/>
           </Button>
         ))}
       {/* 向右箭头 */}
@@ -131,7 +125,7 @@ const Carousel = forwardRef(function Carousel(
           <Button square type="secondary" size="lg"
             className="!bg-gray-800/20 text-white absolute bottom-6 left-[4.5rem]"
             onClick={nextPage}>
-            <RightIcon />
+            <Icon icon={RightArrow} size={64}/>
           </Button>
         ))}
       {/* 轮播进度 */}

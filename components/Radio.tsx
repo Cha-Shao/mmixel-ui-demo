@@ -5,65 +5,56 @@ import {
   PropsWithChildren,
   SetStateAction,
   forwardRef,
-  useRef,
 } from "react"
-import { Size } from "./types"
 import classNames from "classnames"
-import RadioGroup from "./radio/radio-group"
 
 interface Props extends
   PropsWithChildren,
-  HTMLAttributes<HTMLLabelElement> {
+  Omit<HTMLAttributes<HTMLLabelElement>, "onChange"> {
   checked: boolean
   name: string
-  value: boolean
+  value: any
   setValue: Dispatch<SetStateAction<boolean>>
 
   color?: string
 
-  size?: Size
   disabled?: boolean
-  onChange?: () => void
+  onChange?: (value: string) => void
 }
 
 const Radio = forwardRef(function Radio(
   props: Props,
   ref: ForwardedRef<HTMLLabelElement>
 ) {
-  const radioRef = useRef<HTMLInputElement>(null)
-
+  const {
+    checked = false,
+    color = "#ff8729",
+  } = props
   return (
     <label
       ref={ref}
-      {...props}
       className={classNames(
         "m-radio",
         props.className,
         "inline-flex items-center",
-        props.disabled ? "opacity-50 cursor-no-drop" : "cursor-pointer",
+        props.disabled ? "opacity-50 cursor-no-drop" : "cursor-pointer"
       )}>
       <input
-        ref={radioRef}
         name={props.name}
         type="radio"
         className="m-radio-input hidden"
         disabled={props.disabled}
-        onChange={() => { props.setValue(props.value) }}
-      />
-      <div className="w-4 h-4 border-2 rounded-full mr-1 flex" style={{
-        borderColor: props.color || "#ff8729"
-      }}>
-        <div className={classNames(
-          "m-auto",
-          "w-2 h-2",
-          "rounded-full",
-          "duration-100",
-          { "scale-0": !props.checked }
-        )} style={{
-          backgroundColor: props.color || "#ff8729"
+        onChange={() => {
+          props.setValue(props.value)
+          props.onChange && props.onChange(props.value)
         }} />
-      </div>
-      {props.children}
+      <div
+        className="m-radio-icon w-5 h-5 rounded-full duration-200"
+        style={{
+          boxShadow: `0 0 0 ${checked ? "6px" : "2px"} ${checked ? color : "hsl(0deg 0% 50% / 50%)"
+            } inset`,
+        }} />
+      <span className="m-radio-children px-2">{props.children}</span>
     </label>
   )
 })

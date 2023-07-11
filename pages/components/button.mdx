@@ -5,13 +5,29 @@ export const LoadButton = () => {
   const [loading, setLoading] = useState(false)
   const showLoad = () => {
     setLoading(true)
-    setTimeout(()=>{
+    setTimeout(() => {
       setLoading(false)
     }, 2000)
   }
   return (
-    <Button loading={loading} onClick={showLoad} icon={<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"/></svg>}>这是什么，点一下</Button>
-    )
+    <Button
+      loading={loading}
+      onClick={showLoad}
+      icon={
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16">
+          <path
+            fill="currentColor"
+            d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"
+          />
+        </svg>
+      }>
+      这是什么，点一下
+    </Button>
+  )
 }
 
 # 按钮 Button
@@ -22,7 +38,7 @@ export const LoadButton = () => {
 
 使用 `size` 调整大小
 
-<br/>
+<br />
 
 <Button size="ty">小小</Button>
 <Button size="sm">小</Button>
@@ -48,7 +64,7 @@ export default function App() {
 
 使用 `type` 调整样式
 
-<br/>
+<br />
 
 <Button type="primary">Primary</Button>
 <Button type="secondary">Secondary</Button>
@@ -69,12 +85,14 @@ export default function App() {
 
 使用 `rounded` 或 `square` 调整形状
 
-<br/>
+<br />
 
 <Button>不圆</Button>
 <Button rounded>圆润</Button>
 <Button square>方</Button>
-<Button square rounded>原</Button>
+<Button square rounded>
+  原
+</Button>
 
 ```tsx copy
 import { Button } from "mmixel-ui"
@@ -93,10 +111,14 @@ export default function App() {
 
 使用 `disabled` 禁用按钮
 
-<br/>
+<br />
 
-<Button type="primary" disabled>Primary</Button>
-<Button type="secondary" disabled>Secondary</Button>
+<Button type="primary" disabled>
+  Primary
+</Button>
+<Button type="secondary" disabled>
+  Secondary
+</Button>
 
 ```tsx copy
 import { Button } from "mmixel-ui"
@@ -113,9 +135,9 @@ export default function App() {
 
 使用 `loaidng` 处于加载状态
 
-<br/>
+<br />
 
-<LoadButton/>
+<LoadButton />
 
 ```tsx copy
 "use client"
@@ -126,15 +148,12 @@ const LoadButton = () => {
   const [loading, setLoading] = useState<boolean>(false)
   const showLoad = () => {
     setLoading(true)
-    setTimeout(()=>{
+    setTimeout(() => {
       setLoading(false)
     }, 1000)
   }
   return (
-    <Button 
-      loading={loading}
-      onClick={showLoad}
-      icon={<HomeIcon />}>
+    <Button loading={loading} onClick={showLoad} icon={<HomeIcon />}>
       这是什么，点一下
     </Button>
   )
@@ -147,13 +166,39 @@ export default LoadButton
 
 使用 `icon` 添加图标
 
-> 当 `loading` 时icon将会被加载图标替换
+> 当 `loading` 时 icon 将会被加载图标替换
 
-<br/>
+<br />
 
-<Button icon={<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"/></svg>}>苹果</Button>
+<Button
+  icon={
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 16 16">
+      <path
+        fill="currentColor"
+        d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"
+      />
+    </svg>
+  }>
+  苹果
+</Button>
 
-<Button icon={<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="currentColor" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"/></svg>}></Button>
+<Button
+  icon={
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 16 16">
+      <path
+        fill="currentColor"
+        d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"
+      />
+    </svg>
+  }></Button>
 
 ```tsx copy
 import { Button } from "mmixel-ui"
@@ -170,7 +215,7 @@ export default function App() {
 
 使用 `ButtonGroup` 组件包裹按钮
 
-<br/>
+<br />
 
 <ButtonGroup>
   <Button>富强</Button>
@@ -210,19 +255,19 @@ export default function App() {
 
 ### Button Props
 
-| Prop     | Type                                               | Default     | Desc           |
-| :------- | :------------------------------------------------- | :---------- | :------------- |
-| type     | `"default" \| "primary" \| "secondary" \| "ghost"` | `"default"` | 按钮的样式     |
-| size     | `"ty"\| "sm"   \| "md"\| "lg"\| "xl"`              | `"md"`      | 按钮的大小     |
-| rounded  | `boolean`                                          | `false`     | 按钮是否圆角   |
-| square   | `boolean`                                          | `false`     | 按钮是否正方形 |
-| disabled | `boolean`                                          | `false`     | 按钮禁用状态   |
-| loading  | `boolean`                                          | `false`     | 按钮加载状态   |
-| icon     | `ReactNode`                                        | `undefined` | 按钮图标       |
+| Prop     | Type                                               | Default     | Desc       |
+| :------- | :------------------------------------------------- | :---------- | :--------- |
+| type     | `"default" \| "primary" \| "secondary" \| "ghost"` | `"default"` | 按钮样式   |
+| size     | `"ty"\| "sm"   \| "md"\| "lg"\| "xl"`              | `"md"`      | 按钮大小   |
+| rounded  | `boolean`                                          | `false`     | 是否圆角   |
+| square   | `boolean`                                          | `false`     | 是否正方形 |
+| disabled | `boolean`                                          | `false`     | 禁用状态   |
+| loading  | `boolean`                                          | `false`     | 加载状态   |
+| icon     | `ReactNode`                                        | `undefined` | 图标       |
 
 ### ButtonGroup Props
 
 | Prop      | Type             | Default | Desc           |
 | :-------- | :--------------- | :------ | :------------- |
-| direction | `"hor" \| "ver"` | `"hor"` | 按钮组的方向   |
+| direction | `"hor" \| "ver"` | `"hor"` | 按钮组方向     |
 | rounded   | `boolean`        | `false` | 按钮组是否圆角 |

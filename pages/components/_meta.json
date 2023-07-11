@@ -3,10 +3,12 @@
   "button": "按钮 Button",
   "card": "卡片 Card",
   "carousel": "轮播 Carousel",
+  "checkbox": "复选框 Checkbox",
   "collapse": "折叠面板 Collapse",
   "dropdown": "下拉菜单 Dropdown",
   "input": "输入 Input",
   "radio": "单选 Radio",
   "tag": "标签 Tag",
-  "title": "标题 Title"
+  "title": "标题 Title",
+  "upload": "上传 Upload"
 }
