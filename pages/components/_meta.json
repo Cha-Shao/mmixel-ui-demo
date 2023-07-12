@@ -10,5 +10,7 @@
   "radio": "单选 Radio",
   "tag": "标签 Tag",
   "title": "标题 Title",
-  "upload": "上传 Upload"
+  "tooltip": "提示 Tooltip",
+  "upload": "上传 Upload",
+  "switch": "开关 Switch"
 }

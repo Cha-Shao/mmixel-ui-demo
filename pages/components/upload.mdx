@@ -36,7 +36,7 @@ export const UploadDrag = () => {
       }}>
       <Card bordered className="duration-200 hover:border-[#ff8729]">
         <div className="flex flex-col items-center">
-          📦
+          <p className="text-5xl">📦</p>
           <p>点击或拖动文件到此处上传</p>
         </div>
       </Card>
@@ -56,6 +56,24 @@ export const UploadDrag = () => {
 
 <UploadDefault />
 
+```tsx copy
+import { Upload, Button } from "mmixel-ui"
+
+const UploadDefault = () => {
+  const [files, setFiles] = useState([])
+  return (
+    <Upload
+      files={files}
+      setFiles={setFiles}
+      accept="image/png, image/webp, image/jpeg">
+      <Button>上传文件</Button>
+    </Upload>
+  )
+}
+
+export default UploadDefault
+```
+
 ### 多文件
 
 可以携带多个文件
@@ -64,11 +82,56 @@ export const UploadDrag = () => {
 
 <UploadMultiple />
 
+```tsx copy
+import { Upload, Button } from "mmixel-ui"
+
+const UploadMultiple = () => {
+  const [files, setFiles] = useState([])
+  return (
+    <Upload files={files} setFiles={setFiles} multiple max={3}>
+      <Button>上传文件</Button>
+    </Upload>
+  )
+}
+
+export default UploadMultiple
+```
+
 ### 拖拽上传
 
 可以将文件直接拖过来上传
 
 <UploadDrag />
+
+```tsx copy
+import { Upload, Button, Card } from "mmixel-ui"
+
+const UploadDrag = () => {
+  const [files, setFiles] = useState([])
+  return (
+    <Upload
+      files={files}
+      setFiles={setFiles}
+      multiple
+      drag
+      onUpload={e => {
+        console.log(e)
+      }}
+      onRemove={e => {
+        console.log(e)
+      }}>
+      <Card bordered className="duration-200 hover:border-[#ff8729]">
+        <div className="flex flex-col items-center">
+          <p className="text-5xl">📦</p>
+          <p>点击或拖动文件到此处上传</p>
+        </div>
+      </Card>
+    </Upload>
+  )
+}
+
+export default UploadDrag
+```
 
 ### Upload Props
 

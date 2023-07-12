@@ -1,5 +1,5 @@
 import classNames from "classnames"
-import { Dispatch, ForwardedRef, HTMLAttributes, PropsWithChildren, SetStateAction, forwardRef } from "react"
+import { ChangeEvent, Dispatch, ForwardedRef, HTMLAttributes, PropsWithChildren, SetStateAction, forwardRef } from "react"
 import { Check, Icon } from "./Icons"
 
 interface Props extends
@@ -8,7 +8,7 @@ interface Props extends
   checked: boolean
   setValue: Dispatch<SetStateAction<boolean>>
 
-  color?: string
+  colorDefault?: string
 
   disabled?: boolean
   onCheck?: (checked: boolean) => void
@@ -22,7 +22,7 @@ const Checkbox = forwardRef(function Checkbox(
   const {
     checked = false,
     disabled = false,
-    color = "#ff8729",
+    colorDefault: color = "#ff8729",
   } = props
   return (
     <label ref={ref} {...props} className={classNames(
@@ -35,8 +35,8 @@ const Checkbox = forwardRef(function Checkbox(
         type="checkbox"
         disabled={disabled}
         className="m-checkbox-input hidden"
-        onChange={() => {
-          props.setValue(!checked)
+        onChange={(e: ChangeEvent<HTMLInputElement>) => {
+          props.setValue(e.target.checked)
           checked
             ? props.onCheck && props.onCheck(!checked)
             : props.onUncheck && props.onUncheck(!checked)

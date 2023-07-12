@@ -16,7 +16,7 @@ interface Props extends
   value: any
   setValue: Dispatch<SetStateAction<boolean>>
 
-  color?: string
+  colorDefault?: string
 
   disabled?: boolean
   onChange?: (value: string) => void
@@ -28,7 +28,7 @@ const Radio = forwardRef(function Radio(
 ) {
   const {
     checked = false,
-    color = "#ff8729",
+    colorDefault: color = "#ff8729",
   } = props
   return (
     <label

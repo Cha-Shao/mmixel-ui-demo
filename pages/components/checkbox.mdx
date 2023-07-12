@@ -63,6 +63,27 @@ export const CheckboxCallback = () => {
 
 <CheckboxDefault />
 
+```tsx copy
+const SelectServer = () => {
+  const [server, setServer] = useState(false)
+  return (
+    <>
+      <Checkbox checked={server} setValue={setServer}>
+        便宜
+      </Checkbox>
+      <Checkbox checked={server} setValue={setServer}>
+        快速
+      </Checkbox>
+      <Checkbox checked={server} setValue={setServer}>
+        稳定
+      </Checkbox>
+    </>
+  )
+}
+
+export default SelectServer
+```
+
 ### 禁用
 
 你的意思是想要便宜快速稳定的服务器？
@@ -71,6 +92,27 @@ export const CheckboxCallback = () => {
 
 <CheckboxDisabled />
 
+```tsx copy
+const CheckboxDisabled = () => {
+  const [server, setServer] = useState(false)
+  return (
+    <>
+      <Checkbox checked={server} setValue={setServer}>
+        便宜
+      </Checkbox>
+      <Checkbox checked={server} setValue={setServer}>
+        快速
+      </Checkbox>
+      <Checkbox checked={false} setValue={setServer} disabled>
+        稳定
+      </Checkbox>
+    </>
+  )
+}
+
+export default CheckboxDisabled
+```
+
 ### 回调
 
 可以设置点击之后的事件
@@ -78,6 +120,28 @@ export const CheckboxCallback = () => {
 <br />
 
 <CheckboxCallback />
+
+```tsx copy
+const CheckboxCallback = () => {
+  const [checked, setChecked] = useState(false)
+  const handleCheck = checked => {
+    console.log(checked)
+  }
+  return (
+    <>
+      <Checkbox
+        checked={checked}
+        setValue={setChecked}
+        onCheck={handleCheck}
+        onUncheck={handleCheck}>
+        点我
+      </Checkbox>
+    </>
+  )
+}
+
+export default CheckboxCallback
+```
 
 ### Checkbox Props
 

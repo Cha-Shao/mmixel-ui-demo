@@ -1,0 +1,63 @@
+import { Switch } from "../../components"
+import { useState } from "react"
+
+export const SwtichDefault = () => {
+  const [enable, setEnable] = useState(false)
+  return (
+    <>
+      <Switch size="sm" value={enable} setValue={setEnable} className="mx-1" />
+      <Switch value={enable} setValue={setEnable} className="mx-1" />
+      <Switch size="lg" value={enable} setValue={setEnable} className="mx-1" />
+    </>
+  )
+}
+export const SwtichColor = () => {
+  const [enable, setEnable] = useState(false)
+  return (
+    <>
+      <Switch
+        value={enable}
+        setValue={setEnable}
+        className="mx-1"
+        color="#ff1554"
+      />
+      <Switch
+        value={enable}
+        setValue={setEnable}
+        className="mx-1"
+        color="#0074f3"
+      />
+    </>
+  )
+}
+
+# 开关 Switch
+
+冰箱关到多少灯会关
+
+### 大小
+
+使用 `size` 调整开关大小
+
+<br />
+
+<SwtichDefault />
+
+### 颜色
+
+使用 `color` 更改颜色
+
+<br />
+
+<SwtichColor />
+
+### Switch Props
+
+| Prop     | Type                                | Default     | Desc               |
+| :------- | :---------------------------------- | :---------- | :----------------- |
+| value    | `boolean`                           | `undefined` | 组件的值           |
+| setValue | `Dispatch<SetStateAction<boolean>>` | `undefined` | 改变值的方法       |
+| size     | `"sm" \| "md" \| "lg"`              | `"md"`      | 开关大小           |
+| disabled | `boolean`                           | `false`     | 开关是否禁用       |
+| color    | `string`                            | `#ff8729`   | 开关活动时背景颜色 |
+| onChange | `(value: boolean) => void`          | `undefined` | 开关时的回调       |

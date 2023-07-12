@@ -74,11 +74,84 @@ export const RadioDisabled = () => {
 
 <RadioDefault />
 
+```tsx copy
+
+import { Radio } from "mmixel-ui"
+
+const SelectGender = () => {
+  const [gender, setGender] = useState("Helicopter")
+  return (
+    <>
+      <span>已选择：{gender}</span>
+      <br />
+      <Radio
+        checked={gender === "Male"}
+        name="gender"
+        value="Male"
+        setValue={setGender}>
+        男
+      </Radio>
+      <Radio
+        checked={gender === "Female"}
+        name="gender"
+        value="Female"
+        setValue={setGender}>
+        女
+      </Radio>
+      <Radio
+        checked={gender === "Email"}
+        name="gender"
+        value="Email"
+        setValue={setGender}>
+        电子邮件
+      </Radio>
+    </>
+  )
+}
+
+export default SelectGender
+```
+
 ### 禁用
 
 有些事情总是不尽人意
 
 <RadioDisabled />
+
+```tsx copy
+export const RadioDisabled = () => {
+  const [hobby, setHobby] = useState("")
+  return (
+    <>
+      <br />
+      <Radio
+        checked={hobby === "Ski"}
+        name="hobby"
+        value="Ski"
+        setValue={setHobby}>
+        滑雪
+      </Radio>
+      <Radio
+        checked={hobby === "Jump"}
+        name="hobby"
+        value="Jump"
+        setValue={setHobby}>
+        跳伞
+      </Radio>
+      <Radio
+        disabled
+        checked={hobby === "Fly"}
+        name="hobby"
+        value="Fly"
+        setValue={setHobby}>
+        翼装飞行
+      </Radio>
+    </>
+  )
+}
+
+export default RadioDisabled
+```
 
 ### Radio Props
 

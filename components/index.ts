@@ -12,7 +12,9 @@ import Input from "./Input"
 import Radio from "./Radio"
 import Tag from "./Tag"
 import Title from "./Title"
+import Tooltip from "./Tooltip"
 import Upload from "./Upload"
+import Switch from "./Switch"
 
 Avatar.Group = AvatarGroup
 Button.Group = ButtonGroup
@@ -30,5 +32,7 @@ export {
   Radio,
   Tag,
   Title,
+  Tooltip,
   Upload,
+  Switch,
 }

@@ -1,0 +1,81 @@
+import { Tooltip, Button } from "../../components"
+
+# 提示 Tooltip
+
+锋利 III、火焰附加 II、击退 II
+
+### 默认
+
+最基本的提示
+
+<br />
+
+<Tooltip content="没错，这是一个按钮">
+  <Button>这是什么？</Button>
+</Tooltip>
+
+```tsx copy
+import { Tooltip } from "mmixel-ui"
+
+export default function App() {
+  return (
+    <Tooltip content="没错，这是一个按钮">
+      <Button>这是什么？</Button>
+    </Tooltip>
+  )
+}
+```
+
+### 圆角
+
+它可以是圆的
+
+<br />
+
+<Tooltip rounded content="没错，我是圆的">
+  <Button>它是圆的吗？</Button>
+</Tooltip>
+
+```tsx copy
+import { Tooltip } from "mmixel-ui"
+
+export default function App() {
+  return (
+    <Tooltip rounded content="没错，我是圆的">
+      <Button>它是圆的吗？</Button>
+    </Tooltip>
+  )
+}
+```
+
+### 颜色
+
+可以使用任何颜色
+
+<br />
+
+<Tooltip content="是橙色" backgroundColor="#ff8729" contentColor="white">
+  <Button>猜猜它是什么颜色</Button>
+</Tooltip>
+
+```tsx copy
+import { Tooltip } from "mmixel-ui"
+
+export default function App() {
+  return (
+    <Tooltip content="是橙色" backgroundColor="#ff8729" contentColor="white">
+      <Button>猜猜它是什么颜色</Button>
+    </Tooltip>
+  )
+}
+```
+
+### Tooltip Props
+
+| Prop            | Type           | Default     | Desc           |
+| :-------------- | :------------- | :---------- | :------------- |
+| trigger         | `ReactElement` | `undefined` | 组件触发器     |
+| content         | `string`       | `undefined` | 提示内容       |
+| rounded         | `boolean`      | `false`     | 提示框是否圆形 |
+| backgroundColor | `string`       | `"white"`   | 提示框背景颜色 |
+| contentColor    | `string`       | `"black"`   | 提示框文字颜色 |
