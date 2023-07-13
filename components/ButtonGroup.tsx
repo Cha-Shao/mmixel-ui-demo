@@ -12,7 +12,7 @@ import {
 interface Props extends
   PropsWithChildren,
   HTMLAttributes<HTMLDivElement> {
-  direction?: | "hor" | "ver"
+  direction?: "hor" | "ver"
   rounded?: boolean
 }
 

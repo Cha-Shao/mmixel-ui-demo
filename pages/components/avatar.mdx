@@ -1,7 +1,5 @@
-import Avatar from "../../components/Avatar"
+import { Avatar, Input } from "../../components"
 import { useState } from "react"
-import Input from "../../components/Input"
-import AvatarGroup from "../../components/AvatarGroup"
 
 export const AvatarText = () => {
   const [inputText, setInputText] = useState("Dusk")
@@ -38,12 +36,14 @@ export const AvatarGroupComponent = () => {
     src: "/avatar/rick_astley.jpg"
   }]
 
-  return (
-    <AvatarGroup more={7}>
-      {members.map((member, i) => <Avatar key={i} {...member} />)}
-    </AvatarGroup>
-  )
-}
+return (
+
+<Avatar.Group more={7}>
+  {members.map((member, i) => (
+    <Avatar key={i} {...member} />
+  ))}
+</Avatar.Group>
+) }
 
 # 头像 Avatar
 
@@ -53,7 +53,7 @@ export const AvatarGroupComponent = () => {
 
 面子很大
 
-<br/>
+<br />
 
 <Avatar size="ty" src="/avatar/avatar.png" />
 <Avatar size="sm" text="Dusk" />
@@ -79,7 +79,7 @@ export default function App() {
 
 使用 `rounded` 让它变成圆的
 
-<br/>
+<br />
 
 <Avatar src="/avatar/avatar.png" />
 <Avatar rounded src="/avatar/avatar.png" />
@@ -100,10 +100,10 @@ export default function App() {
 - `bordered` 添加边框
 - `borderColor` 调整边框颜色
 
-<br/>
+<br />
 
-<Avatar src="/avatar/avatar.png" bordered className="mr-2"/>
-<Avatar src="/avatar/avatar.png" bordered borderColor="#00b3bb" rounded/>
+<Avatar src="/avatar/avatar.png" bordered className="mr-2" />
+<Avatar src="/avatar/avatar.png" bordered borderColor="#00b3bb" rounded />
 
 ```tsx copy
 import { Avatar } from "mmixel-ui"
@@ -121,7 +121,7 @@ export default function App() {
 - `backgroundColor` 调整背景颜色
 - `textColor` 调整文字颜色
 
-<br/>
+<br />
 
 <Avatar size="xl" text="Exusiai" textColor="crimson" />
 <Avatar size="xl" backgroundColor="#ef8923" src="/avatar/exusiai.png" />
@@ -141,14 +141,13 @@ export default function App() {
 
 ### 文字
 
-Github没有头像的人分两种：刚注册的新手和巨佬
+Github 没有头像的人分两种：刚注册的新手和巨佬
 
-<br/>
+<br />
 
-<AvatarText/>
+<AvatarText />
 
 ```tsx copy
-
 import { useState } from "react"
 import { Input } from "mmixel-ui"
 
@@ -158,13 +157,14 @@ export const AvatarText = () => {
     <>
       <div className="flex gap-2 mb-2">
         <Avatar text={inputText} />
-        <Avatar 
-          rounded 
-          text={inputText} 
+        <Avatar
+          rounded
+          text={inputText}
           backgroundColor="#313131"
-          textColor="white" />
+          textColor="white"
+        />
       </div>
-      <Input value={inputText} setValue={setInputText}/>
+      <Input value={inputText} setValue={setInputText} />
     </>
   )
 }
@@ -174,35 +174,43 @@ export const AvatarText = () => {
 
 好多人啊
 
-<br/>
+<br />
 
 <AvatarGroupComponent />
 
 ```tsx copy
-import { Avatar, AvatarGroup } from "mmixel-ui"
+import { Avatar } from "mmixel-ui"
 
 export default function App() {
-  const members = [{
-    src: "/avatar/avatar.png"
-  }, {
-    text: "Nian",
-    bordered: true,
-    borderColor: "#f34e0e"
-  }, {
-    src: "/avatar/exusiai.png",
-    backgroundColor: "#313131"
-  }, {
-    text: "Texas",
-    textColor: "white",
-    backgroundColor: "linear-gradient(45deg, #443ab4, #1d83d8)"
-  }, {
-    src: "/avatar/rick_astley.jpg"
-  }]
+  const members = [
+    {
+      src: "/avatar/avatar.png",
+    },
+    {
+      text: "Nian",
+      bordered: true,
+      borderColor: "#f34e0e",
+    },
+    {
+      src: "/avatar/exusiai.png",
+      backgroundColor: "#313131",
+    },
+    {
+      text: "Texas",
+      textColor: "white",
+      backgroundColor: "linear-gradient(45deg, #443ab4, #1d83d8)",
+    },
+    {
+      src: "/avatar/rick_astley.jpg",
+    },
+  ]
 
   return (
-    <AvatarGroup more={7}>
-      {members.map((member, i) => <Avatar key={i} {...member} />)}
-    </AvatarGroup>
+    <Avatar.Group more={7}>
+      {members.map((member, i) => (
+        <Avatar key={i} {...member} />
+      ))}
+    </Avatar.Group>
   )
 }
 ```
@@ -211,9 +219,9 @@ export default function App() {
 
 使用 `lazy` 调整懒加载模式
 
-> lazy默认为`true`
+> lazy 默认为`true`
 
-<br/>
+<br />
 
 <Avatar src="/avatar/avatar.png" />
 <Avatar lazy={false} src="/avatar/avatar.png" />
@@ -233,7 +241,7 @@ export default function App() {
 
 | Prop            | Type                                   | Default     | Desc                     |
 | :-------------- | :------------------------------------- | :---------- | :----------------------- |
-| src             | `string`                               | `undefined` | 头像的URL地址            |
+| src             | `string`                               | `undefined` | 头像的 URL 地址          |
 | text            | `string`                               | `undefined` | 头像显示的文字           |
 | alt             | `string`                               | `undefined` | 头像无法显示时的替代文本 |
 | size            | `"ty" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"`      | 头像的大小               |

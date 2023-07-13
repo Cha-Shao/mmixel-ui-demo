@@ -8,7 +8,7 @@ import {
 } from "react"
 import { Size } from "./types"
 import Title from "./Title"
-import { Close, Icon } from "./Icons"
+import Icon, { Close } from "./Icons"
 
 interface Props extends
   PropsWithChildren,

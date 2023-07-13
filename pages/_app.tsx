@@ -4,6 +4,7 @@ import localFont from "next/font/local"
 
 import "../styles/globals.css"
 import Head from "next/head"
+import { MessageProvider } from "../components"
 
 const misans = localFont({
   src: [{
@@ -31,11 +32,13 @@ const misans = localFont({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (<>
-    <Head>
-      <link rel="shortcut icon" href="/icon.svg" />
-    </Head>
-    <main className={misans.className}>
-      <Component {...pageProps} />
-    </main>
+    <MessageProvider>
+      <Head>
+        <link rel="shortcut icon" href="/icon.svg" />
+      </Head>
+      <main className={misans.className}>
+        <Component {...pageProps} />
+      </main>
+    </MessageProvider>
   </>)
 }

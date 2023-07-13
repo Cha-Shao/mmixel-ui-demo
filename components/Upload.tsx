@@ -12,7 +12,7 @@ import {
   useRef,
 } from "react"
 import Button from "./Button"
-import { Icon, Close, Files } from "./Icons"
+import Icon, { Close, Files } from "./Icons"
 
 interface Props extends
   PropsWithChildren,

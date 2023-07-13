@@ -12,7 +12,7 @@ import {
   AnimatePresence,
   motion
 } from "framer-motion"
-import { DownArrow, Icon } from "./Icons"
+import Icon, { DownArrow } from "./Icons"
 
 interface Props extends
   PropsWithChildren,

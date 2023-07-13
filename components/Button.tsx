@@ -13,7 +13,7 @@ import ButtonGroup from "./ButtonGroup"
 interface Props extends
   PropsWithChildren,
   HTMLAttributes<HTMLButtonElement> {
-  type?: | "default" | "primary" | "secondary" | "ghost"
+  type?: "default" | "primary" | "secondary" | "ghost"
   size?: FullSize
   rounded?: boolean
   square?: boolean

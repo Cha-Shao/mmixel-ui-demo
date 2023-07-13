@@ -1,5 +1,4 @@
-import Carousel from "../../components/Carousel"
-import Button from "../../components/Button"
+import { Button, Carousel } from "../../components"
 import Image from "next/image"
 import { useState } from "react"
 import classNames from "classnames"
@@ -16,7 +15,9 @@ export const CustomCarousel = () => {
     setPage(prevPage => (prevPage + 1) % images.length)
   }
   const prevPage = () => {
-    page - 1 < 0 ? setPage(images.length - 1) : setPage(prevPage => prevPage - 1)
+    page - 1 < 0
+      ? setPage(images.length - 1)
+      : setPage(prevPage => prevPage - 1)
   }
   return (
     <div>
@@ -24,27 +25,39 @@ export const CustomCarousel = () => {
         {images.map((image, i) => (
           <Image
             key={i}
-            src={`/carousel${image}`} alt=""
+            src={`/carousel${image}`}
+            alt=""
             className="w-full object-cover"
-            width={720} height={405} />
+            width={720}
+            height={405}
+          />
         ))}
       </Carousel>
       <div className="flex items-center">
-        <Button square onClick={prevPage} className="shrink-0">{'<'}</Button>
+        <Button square onClick={prevPage} className="shrink-0">
+          {"<"}
+        </Button>
         <div className="flex-grow grid grid-cols-4 gap-2 mx-4">
           {images.map((image, i) => (
             <Image
               key={i}
-              src={`/carousel${image}`} alt=""
+              src={`/carousel${image}`}
+              alt=""
               className={classNames(
                 "w-full object-cover rounded-md duration-200",
-                {"opacity-50 cursor-pointer": i !== page}
+                { "opacity-50 cursor-pointer": i !== page }
               )}
-              width={192} height={108} 
-              onClick={()=>{setPage(i)}}/>
+              width={192}
+              height={108}
+              onClick={() => {
+                setPage(i)
+              }}
+            />
           ))}
         </div>
-        <Button square onClick={nextPage} className="shrink-0">{'>'}</Button>
+        <Button square onClick={nextPage} className="shrink-0">
+          {">"}
+        </Button>
       </div>
     </div>
   )
@@ -58,25 +71,37 @@ export const CustomCarousel = () => {
 
 最基础的轮播
 
-<br/>
+<br />
 
 <Carousel>
   <Image
     src="/carousel/8db06cb6918f35ad86512810c01aa38815b1d6bb0aab60526737647ec4a343d2.png"
-    className="w-full object-cover" alt=""
-    width={720} height={405} />
+    className="w-full object-cover"
+    alt=""
+    width={720}
+    height={405}
+  />
   <Image
     src="/carousel/9076dccead5d973e870216a55afe95cdcf11ed923c15f0c6e3f41a240a1710fd.png"
-    className="w-full object-cover" alt=""
-    width={720} height={405} />
+    className="w-full object-cover"
+    alt=""
+    width={720}
+    height={405}
+  />
   <Image
     src="/carousel/cbf8621803f02ced3dfe2f1ca57e290cc0dccebd485b0e9fb2f8f826f38f01bf.png"
-    className="w-full object-cover" alt=""
-    width={720} height={405} />
+    className="w-full object-cover"
+    alt=""
+    width={720}
+    height={405}
+  />
   <Image
     src="/carousel/d2b1e3aea6add585b7cd5ebb53e2a7de11b74db60b6ebdbf04dc1c81ef2ed633.png"
-    className="w-full object-cover" alt=""
-    width={720} height={405} />
+    className="w-full object-cover"
+    alt=""
+    width={720}
+    height={405}
+  />
 </Carousel>
 
 ```tsx copy
@@ -103,8 +128,11 @@ export const CarouselExample = async () => {
         <Image
           key={i}
           src={`/carousel${image}`}
-          className="w-full object-cover" alt=""
-          width={720} height={405} />
+          className="w-full object-cover"
+          alt=""
+          width={720}
+          height={405}
+        />
       ))}
     </Carousel>
   )
@@ -117,25 +145,37 @@ export const CarouselExample = async () => {
 
 调整 `interval` 修改每页停留时间
 
-<br/>
+<br />
 
 <Carousel autoplay interval={2000}>
   <Image
     src="/carousel/8db06cb6918f35ad86512810c01aa38815b1d6bb0aab60526737647ec4a343d2.png"
-    className="w-full object-cover" alt=""
-    width={720} height={405} />
+    className="w-full object-cover"
+    alt=""
+    width={720}
+    height={405}
+  />
   <Image
     src="/carousel/9076dccead5d973e870216a55afe95cdcf11ed923c15f0c6e3f41a240a1710fd.png"
-    className="w-full object-cover" alt=""
-    width={720} height={405} />
+    className="w-full object-cover"
+    alt=""
+    width={720}
+    height={405}
+  />
   <Image
     src="/carousel/cbf8621803f02ced3dfe2f1ca57e290cc0dccebd485b0e9fb2f8f826f38f01bf.png"
-    className="w-full object-cover" alt=""
-    width={720} height={405} />
+    className="w-full object-cover"
+    alt=""
+    width={720}
+    height={405}
+  />
   <Image
     src="/carousel/d2b1e3aea6add585b7cd5ebb53e2a7de11b74db60b6ebdbf04dc1c81ef2ed633.png"
-    className="w-full object-cover" alt=""
-    width={720} height={405} />
+    className="w-full object-cover"
+    alt=""
+    width={720}
+    height={405}
+  />
 </Carousel>
 
 ```tsx copy
@@ -161,8 +201,11 @@ export const CarouselExample = async () => {
         <Image
           key={i}
           src={`/carousel${image}`}
-          className="w-full object-cover" alt=""
-          width={720} height={405} />
+          className="w-full object-cover"
+          alt=""
+          width={720}
+          height={405}
+        />
       ))}
     </Carousel>
   )
@@ -173,32 +216,54 @@ export const CarouselExample = async () => {
 
 想要来点花里胡哨的？
 
-> dots只需提供一个容器，组件将会自动在容器内放入children
+> dots 只需提供一个容器，组件将会自动在容器内放入 children
 
-<br/>
+<br />
 
 <Carousel
-  arrowLeft={<p className="absolute text-3xl select-none cursor-pointer bottom-6 left-[1.5rem]">⬅️</p>} 
-  arrowRight={<p className="absolute text-3xl select-none cursor-pointer bottom-6 left-[4.5rem]">➡️</p>}
-  dots={<span className="absolute bottom-6 right-6 flex bg-pink-400/50 rounded-md"/>}
+  arrowLeft={
+    <p className="absolute text-3xl select-none cursor-pointer bottom-6 left-[1.5rem]">
+      ⬅️
+    </p>
+  }
+  arrowRight={
+    <p className="absolute text-3xl select-none cursor-pointer bottom-6 left-[4.5rem]">
+      ➡️
+    </p>
+  }
+  dots={
+    <span className="absolute bottom-6 right-6 flex bg-pink-400/50 rounded-md" />
+  }
   dotActive={<p>🥰</p>}
   dotDefault={<p className="cursor-pointer">😴</p>}>
   <Image
     src="/carousel/8db06cb6918f35ad86512810c01aa38815b1d6bb0aab60526737647ec4a343d2.png"
-    className="w-full object-cover" alt=""
-    width={720} height={405} />
+    className="w-full object-cover"
+    alt=""
+    width={720}
+    height={405}
+  />
   <Image
     src="/carousel/9076dccead5d973e870216a55afe95cdcf11ed923c15f0c6e3f41a240a1710fd.png"
-    className="w-full object-cover" alt=""
-    width={720} height={405} />
+    className="w-full object-cover"
+    alt=""
+    width={720}
+    height={405}
+  />
   <Image
     src="/carousel/cbf8621803f02ced3dfe2f1ca57e290cc0dccebd485b0e9fb2f8f826f38f01bf.png"
-    className="w-full object-cover" alt=""
-    width={720} height={405} />
+    className="w-full object-cover"
+    alt=""
+    width={720}
+    height={405}
+  />
   <Image
     src="/carousel/d2b1e3aea6add585b7cd5ebb53e2a7de11b74db60b6ebdbf04dc1c81ef2ed633.png"
-    className="w-full object-cover" alt=""
-    width={720} height={405} />
+    className="w-full object-cover"
+    alt=""
+    width={720}
+    height={405}
+  />
 </Carousel>
 
 ```tsx
@@ -219,17 +284,28 @@ export const CarouselExample = async () => {
   const images = await getImages()
 
   return (
-    <Carousel 
-      arrowLeft={<p className="absolute text-3xl select-none cursor-pointer bottom-6 left-[1.5rem]">⬅️</p>} 
-      arrowRight={<p className="absolute text-3xl select-none cursor-pointer bottom-6 left-[4.5rem]">➡️</p>}
+    <Carousel
+      arrowLeft={
+        <p className="absolute text-3xl select-none cursor-pointer bottom-6 left-[1.5rem]">
+          ⬅️
+        </p>
+      }
+      arrowRight={
+        <p className="absolute text-3xl select-none cursor-pointer bottom-6 left-[4.5rem]">
+          ➡️
+        </p>
+      }
       dotActive={<p>🥰</p>}
       dotDefault={<p className="cursor-pointer">😴</p>}>
       {images.map((image, i) => (
         <Image
           key={i}
           src={`/carousel${image}`}
-          className="w-full object-cover" alt=""
-          width={720} height={405} />
+          className="w-full object-cover"
+          alt=""
+          width={720}
+          height={405}
+        />
       ))}
     </Carousel>
   )
@@ -242,12 +318,11 @@ export const CarouselExample = async () => {
 
 > 使用强制页时默认控件将消失
 
-<br/>
+<br />
 
 <CustomCarousel />
 
 ```tsx copy
-
 import { Button, Carousel } from "mmixel-ui"
 import { useState } from "react"
 import Image from "next/image"
@@ -264,7 +339,9 @@ export const CustomCarousel = () => {
     setPage(prevPage => (prevPage + 1) % images.length)
   }
   const prevPage = () => {
-    page - 1 < 0 ? setPage(images.length - 1) : setPage(prevPage => prevPage - 1)
+    page - 1 < 0
+      ? setPage(images.length - 1)
+      : setPage(prevPage => prevPage - 1)
   }
   return (
     <div>
@@ -272,27 +349,39 @@ export const CustomCarousel = () => {
         {images.map((image, i) => (
           <Image
             key={i}
-            src={`/carousel${image}`} alt=""
+            src={`/carousel${image}`}
+            alt=""
             className="w-full object-cover"
-            width={720} height={405} />
+            width={720}
+            height={405}
+          />
         ))}
       </Carousel>
       <div className="flex items-center">
-        <Button square onClick={prevPage} className="shrink-0">{'<'}</Button>
+        <Button square onClick={prevPage} className="shrink-0">
+          {"<"}
+        </Button>
         <div class="flex-grow grid grid-cols-4 gap-2 mx-4">
           {images.map((image, i) => (
             <Image
               key={i}
-              src={`/carousel${image}`} alt=""
+              src={`/carousel${image}`}
+              alt=""
               className={classNames(
                 "w-full object-cover rounded-md duration-200",
-                {"opacity-50 cursor-pointer": i !== page}
+                { "opacity-50 cursor-pointer": i !== page }
               )}
-              width={192} height={108} 
-              onClick={()=>{setPage(i)}}/>
+              width={192}
+              height={108}
+              onClick={() => {
+                setPage(i)
+              }}
+            />
           ))}
         </div>
-        <Button square onClick={nextPage} className="shrink-0">{'>'}</Button>
+        <Button square onClick={nextPage} className="shrink-0">
+          {">"}
+        </Button>
       </div>
     </div>
   )
@@ -301,15 +390,15 @@ export const CustomCarousel = () => {
 
 ### Carousel Props
 
-| Prop       | Type           | Default     | Desc                       |
-| :--------- | :------------- | :---------- | :------------------------- |
-| autoplay   | `boolean`      | `false`     | 是否自动轮播               |
-| interval   | `number`       | `0`         | 轮播停留时间(ms)           |
-| delay      | `number`       | `0`         | 轮播播放前摇(ms)           |
-| duration   | `number`       | `300`       | 轮播动画时长(ms)           |
-| forcePage  | `number`       | `undefined` | 强制轮播页(index, 从0开始) |
-| arrowLeft  | `ReactElement` | `undefined` | 自定义控件的左箭头         |
-| arrowRight | `ReactElement` | `undefined` | 自定义控件的右箭头         |
-| dots       | `ReactElement` | `undefined` | 自定义控件的指示器容器     |
-| dotActive  | `ReactElement` | `undefined` | 自定义控件的高亮指示器     |
-| dotDefault | `ReactElement` | `undefined` | 自定义控件的默认指示器     |
+| Prop       | Type           | Default     | Desc                         |
+| :--------- | :------------- | :---------- | :--------------------------- |
+| autoplay   | `boolean`      | `false`     | 是否自动轮播                 |
+| interval   | `number`       | `0`         | 轮播停留时间(ms)             |
+| delay      | `number`       | `0`         | 轮播播放前摇(ms)             |
+| duration   | `number`       | `300`       | 轮播动画时长(ms)             |
+| forcePage  | `number`       | `undefined` | 强制轮播页(index, 从 0 开始) |
+| arrowLeft  | `ReactElement` | `undefined` | 自定义控件的左箭头           |
+| arrowRight | `ReactElement` | `undefined` | 自定义控件的右箭头           |
+| dots       | `ReactElement` | `undefined` | 自定义控件的指示器容器       |
+| dotActive  | `ReactElement` | `undefined` | 自定义控件的高亮指示器       |
+| dotDefault | `ReactElement` | `undefined` | 自定义控件的默认指示器       |

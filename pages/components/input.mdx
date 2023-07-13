@@ -1,14 +1,27 @@
-import Input from "../../components/Input"
+import { Input } from "../../components"
 import { useState } from "react"
 
 export const ShowCount = () => {
   const [title, setTitle] = useState("")
   const [composition, setComposition] = useState("")
-  return (<>
-    <Input value={title} setValue={setTitle} placeholder="我的妈妈" showCount />
-    <br/>
-    <Input value={composition} setValue={setComposition} placeholder="我的妈妈是一个..." maxLength={800} showCount />
-  </>)
+  return (
+    <>
+      <Input
+        value={title}
+        setValue={setTitle}
+        placeholder="我的妈妈"
+        showCount
+      />
+      <br />
+      <Input
+        value={composition}
+        setValue={setComposition}
+        placeholder="我的妈妈是一个..."
+        maxLength={800}
+        showCount
+      />
+    </>
+  )
 }
 
 # 输入 Input
@@ -19,9 +32,9 @@ export const ShowCount = () => {
 
 最普通的输入
 
-<br/>
+<br />
 
-<Input placeholder="用户名" setValue={()=>{}}/>
+<Input placeholder="用户名" setValue={() => {}} />
 
 ```tsx copy
 import { useState } from "react"
@@ -29,9 +42,7 @@ import { Input } from "mmixel-ui"
 
 const InputUsername = () => {
   const [username, setUsername] = useState("")
-  return (
-    <Input placeholder="用户名" value={username} setValue={setUsername} />
-  )
+  return <Input placeholder="用户名" value={username} setValue={setUsername} />
 }
 
 export default InputUsername
@@ -41,9 +52,9 @@ export default InputUsername
 
 我闭上眼睛不看
 
-<br/>
+<br />
 
-<Input placeholder="密码" setValue={()=>{}} type="password"/>
+<Input placeholder="密码" setValue={() => {}} type="password" />
 
 ```tsx copy
 import { useState } from "react"
@@ -52,11 +63,12 @@ import { Input } from "mmixel-ui"
 const InputPassword = () => {
   const [password, setPassword] = useState("")
   return (
-    <Input 
-      placeholder="密码" 
+    <Input
+      placeholder="密码"
       type="password"
       value={password}
-      setValue={setPassword} />
+      setValue={setPassword}
+    />
   )
 }
 
@@ -67,9 +79,9 @@ export default InputPassword
 
 提前输入 `value` 可以更改默认值
 
-<br/>
+<br />
 
-<Input placeholder="你好" value="我叫阿杰" setValue={()=>{}} />
+<Input placeholder="你好" value="我叫阿杰" setValue={() => {}} />
 
 ```tsx copy
 import { useState } from "react"
@@ -77,12 +89,7 @@ import { Input } from "mmixel-ui"
 
 const InputLabel = () => {
   const [label, setLabel] = useState("我叫阿杰")
-  return (
-    <Input 
-      placeholder="你好" 
-      value={label}
-      setValue={setLabel} />
-  )
+  return <Input placeholder="你好" value={label} setValue={setLabel} />
 }
 
 export default InputLabel
@@ -92,9 +99,9 @@ export default InputLabel
 
 使用 `rounded` 更改形状
 
-<br/>
+<br />
 
-<Input placeholder="圆的" setValue={()=>{}} rounded />
+<Input placeholder="圆的" setValue={() => {}} rounded />
 
 ```tsx copy
 import { useState } from "react"
@@ -102,13 +109,7 @@ import { Input } from "mmixel-ui"
 
 const InputLabel = () => {
   const [label, setLabel] = useState("")
-  return (
-    <Input
-      rounded
-      placeholder="圆的" 
-      value={label}
-      setValue={setLabel} />
-  )
+  return <Input rounded placeholder="圆的" value={label} setValue={setLabel} />
 }
 
 export default InputLabel
@@ -118,9 +119,9 @@ export default InputLabel
 
 使用 `disabled` 禁用输入
 
-<br/>
+<br />
 
-<Input placeholder="已禁用" setValue={()=>{}} disabled />
+<Input placeholder="已禁用" setValue={() => {}} disabled />
 
 ```tsx copy
 import { useState } from "react"
@@ -129,11 +130,7 @@ import { Input } from "mmixel-ui"
 const InputLabel = () => {
   const [label, setLabel] = useState("")
   return (
-    <Input
-      disabled
-      placeholder="已禁用" 
-      value={label}
-      setValue={setLabel} />
+    <Input disabled placeholder="已禁用" value={label} setValue={setLabel} />
   )
 }
 
@@ -144,11 +141,11 @@ export default InputLabel
 
 规定只能写什么
 
-<br/>
+<br />
 
-<Input setValue={()=>{}} placeholder="只能写5个字" maxLength={5} />
-<br/>
-<Input setValue={()=>{}} placeholder="只能写数字" onlyNumber />
+<Input setValue={() => {}} placeholder="只能写5个字" maxLength={5} />
+<br />
+<Input setValue={() => {}} placeholder="只能写数字" onlyNumber />
 
 ```tsx copy
 import { useState } from "react"
@@ -157,19 +154,23 @@ import { Input } from "mmixel-ui"
 const InputLabel = () => {
   const [content, setContent] = useState("")
   const [phone, setPhone] = useState("")
-  return (<>
-    <Input
-      maxLength={5}
-      placeholder="只能写5个字" 
-      value={label}
-      setValue={setLabel} />
-    <br/>
-    <Input
-      onlyNumber
-      placeholder="只能写数字" 
-      value={phone}
-      setValue={setPhone} />
-  </>)
+  return (
+    <>
+      <Input
+        maxLength={5}
+        placeholder="只能写5个字"
+        value={label}
+        setValue={setLabel}
+      />
+      <br />
+      <Input
+        onlyNumber
+        placeholder="只能写数字"
+        value={phone}
+        setValue={setPhone}
+      />
+    </>
+  )
 }
 
 export default InputLabel
@@ -177,9 +178,9 @@ export default InputLabel
 
 ### 显示字数
 
-写作文时绞尽脑汁凑800字
+写作文时绞尽脑汁凑 800 字
 
-<br/>
+<br />
 
 <ShowCount />
 
@@ -187,20 +188,24 @@ export default InputLabel
 const InputComposition = () => {
   const [title, setTitle] = useState("")
   const [composition, setComposition] = useState("")
-  return (<>
-    <Input 
-      showCount
-      placeholder="我的妈妈" 
-      value={title} 
-      setValue={setTitle} />
-    <br/>
-    <Input
-      showCount
-      maxLength={800} 
-      placeholder="我的妈妈是一个..."
-      value={composition} 
-      setValue={setComposition} />
-  </>)
+  return (
+    <>
+      <Input
+        showCount
+        placeholder="我的妈妈"
+        value={title}
+        setValue={setTitle}
+      />
+      <br />
+      <Input
+        showCount
+        maxLength={800}
+        placeholder="我的妈妈是一个..."
+        value={composition}
+        setValue={setComposition}
+      />
+    </>
+  )
 }
 
 export default InputComposition
@@ -210,29 +215,59 @@ export default InputComposition
 
 给组件添加前缀后缀
 
-<br/>
+<br />
 
-<Input setValue={()=>{}} placeholder="价格" prefix={<p>￥</p>}/>
-<br/>
-<Input setValue={()=>{}} placeholder="搜索" suffix={<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M11 2c4.968 0 9 4.032 9 9s-4.032 9-9 9s-9-4.032-9-9s4.032-9 9-9Zm0 16c3.867 0 7-3.133 7-7s-3.133-7-7-7s-7 3.133-7 7s3.133 7 7 7Zm8.485.071l2.829 2.828l-1.415 1.415l-2.828-2.829l1.414-1.414Z"/></svg>}/>
+<Input setValue={() => {}} placeholder="价格" prefix={<p>￥</p>} />
+<br />
+<Input
+  setValue={() => {}}
+  placeholder="搜索"
+  suffix={
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      viewBox="0 0 24 24">
+      <path
+        fill="currentColor"
+        d="M11 2c4.968 0 9 4.032 9 9s-4.032 9-9 9s-9-4.032-9-9s4.032-9 9-9Zm0 16c3.867 0 7-3.133 7-7s-3.133-7-7-7s-7 3.133-7 7s3.133 7 7 7Zm8.485.071l2.829 2.828l-1.415 1.415l-2.828-2.829l1.414-1.414Z"
+      />
+    </svg>
+  }
+/>
 
 ```tsx copy
 const InputPrefixSuffix = () => {
   const [prize, setPrize] = useState("")
   const [keyword, setKeyword] = useState("")
-  return (<>
-    <Input 
-      prefix={<p>￥</p>}
-      placeholder="价格"
-      value={prize} 
-      setValue={setPrize} />
-    <br/>
-    <Input
-      suffix={<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M11 2c4.968 0 9 4.032 9 9s-4.032 9-9 9s-9-4.032-9-9s4.032-9 9-9Zm0 16c3.867 0 7-3.133 7-7s-3.133-7-7-7s-7 3.133-7 7s3.133 7 7 7Zm8.485.071l2.829 2.828l-1.415 1.415l-2.828-2.829l1.414-1.414Z"/></svg>}
-      placeholder="搜索"
-      value={keyword} 
-      setValue={setKeyword} />
-  </>)
+  return (
+    <>
+      <Input
+        prefix={<p>￥</p>}
+        placeholder="价格"
+        value={prize}
+        setValue={setPrize}
+      />
+      <br />
+      <Input
+        suffix={
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M11 2c4.968 0 9 4.032 9 9s-4.032 9-9 9s-9-4.032-9-9s4.032-9 9-9Zm0 16c3.867 0 7-3.133 7-7s-3.133-7-7-7s-7 3.133-7 7s3.133 7 7 7Zm8.485.071l2.829 2.828l-1.415 1.415l-2.828-2.829l1.414-1.414Z"
+            />
+          </svg>
+        }
+        placeholder="搜索"
+        value={keyword}
+        setValue={setKeyword}
+      />
+    </>
+  )
 }
 
 export default InputPrefixSuffix
@@ -247,27 +282,49 @@ export default InputPrefixSuffix
 - `onBlur`: 组件失焦时
 - `onType`: 组件输入时
 
-<br/>
+<br />
 
-<Input placeholder="干点什么" setValue={()=>{}} 
-  onEnter={()=>{console.log("onEnter")}}
-  onFocus={()=>{console.log("onFocus")}}
-  onBlur={()=>{console.log("onBlur")}}
-  onType={()=>{console.log("onType")}} />
+<Input
+  placeholder="干点什么"
+  setValue={() => {}}
+  onEnter={() => {
+    console.log("onEnter")
+  }}
+  onFocus={() => {
+    console.log("onFocus")
+  }}
+  onBlur={() => {
+    console.log("onBlur")
+  }}
+  onType={() => {
+    console.log("onType")
+  }}
+/>
 
 ```tsx copy
 const InputCallback = () => {
   const [label, setLabel] = useState("")
-  return (<>
-    <Input 
-      placeholder="干点什么"
-      onEnter={()=>{console.log("onEnter")}}
-      onFocus={()=>{console.log("onFocus")}}
-      onBlur={()=>{console.log("onBlur")}}
-      onType={()=>{console.log("onType")}} 
-      value={label}
-      setValue={setLabel} />
-  </>)
+  return (
+    <>
+      <Input
+        placeholder="干点什么"
+        onEnter={() => {
+          console.log("onEnter")
+        }}
+        onFocus={() => {
+          console.log("onFocus")
+        }}
+        onBlur={() => {
+          console.log("onBlur")
+        }}
+        onType={() => {
+          console.log("onType")
+        }}
+        value={label}
+        setValue={setLabel}
+      />
+    </>
+  )
 }
 
 export default InputCallback

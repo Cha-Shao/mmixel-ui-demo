@@ -1,0 +1,72 @@
+import { Button, messageContext } from "../../components"
+import { useContext } from "react"
+import Image from "next/image"
+
+export const MessageDefault = () => {
+  const message = useContext(messageContext)
+  return (
+    <>
+      <Button
+        onClick={() => {
+          message("普通消息")
+        }}>
+        普通消息
+      </Button>
+      <Button
+        onClick={() => {
+          message.success("成功消息")
+        }}>
+        成功消息
+      </Button>
+      <Button
+        onClick={() => {
+          message.warning("警告消息")
+        }}>
+        警告消息
+      </Button>
+      <Button
+        onClick={() => {
+          message.error("错误消息")
+        }}>
+        错误消息
+      </Button>
+      <Button
+        onClick={() => {
+          message.loading("加载消息")
+        }}>
+        加载消息
+      </Button>
+    </>
+  )
+}
+export const MessageCustom = () => {
+  const message = useContext(messageContext)
+  return (
+    <Button
+      onClick={() => {
+        message.custom(<Image src="/avatar/rick_astley.jpg" alt="" width={48} height={48} />)
+      }}>
+      自定义消息
+    </Button>
+  )
+}
+
+# 消息 Message
+
+你有一条未读消息
+
+### 默认
+
+发一条信息
+
+<br/>
+
+<MessageDefault />
+
+### 自定义
+
+想发什么发什么
+
+<br/>
+
+<MessageCustom />

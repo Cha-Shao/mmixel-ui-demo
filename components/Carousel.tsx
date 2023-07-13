@@ -14,7 +14,7 @@ import {
   useState
 } from "react"
 import Button from "./Button"
-import { Icon, LeftArrow, RightArrow } from "./Icons"
+import Icon, { LeftArrow, RightArrow } from "./Icons"
 
 interface Props extends
   PropsWithChildren,
@@ -109,7 +109,7 @@ const Carousel = forwardRef(function Carousel(
           <Button square type="secondary" size="lg"
             className="!bg-gray-800/20 text-white absolute bottom-6 left-[1.5rem]"
             onClick={prevPage}>
-            <Icon icon={LeftArrow} size={64}/>
+            <Icon icon={LeftArrow} size={64} />
           </Button>
         ))}
       {/* 向右箭头 */}
@@ -125,7 +125,7 @@ const Carousel = forwardRef(function Carousel(
           <Button square type="secondary" size="lg"
             className="!bg-gray-800/20 text-white absolute bottom-6 left-[4.5rem]"
             onClick={nextPage}>
-            <Icon icon={RightArrow} size={64}/>
+            <Icon icon={RightArrow} size={64} />
           </Button>
         ))}
       {/* 轮播进度 */}

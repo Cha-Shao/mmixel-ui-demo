@@ -1,5 +1,4 @@
-import Button from "../../components/Button"
-import ButtonGroup from "../../components/ButtonGroup"
+import { Button } from "../../components"
 import { useState } from "react"
 export const LoadButton = () => {
   const [loading, setLoading] = useState(false)
@@ -140,7 +139,6 @@ export default function App() {
 <LoadButton />
 
 ```tsx copy
-
 import { Button } from "mmixel-ui"
 import { useState } from "react"
 
@@ -213,42 +211,42 @@ export default function App() {
 
 ### 按钮组
 
-使用 `ButtonGroup` 组件包裹按钮
+使用 `Button.Group` 组件包裹按钮
 
 <br />
 
-<ButtonGroup>
+<Button.Group>
   <Button>富强</Button>
   <Button type="primary">民主</Button>
   <Button type="secondary">文明</Button>
   <Button>和谐</Button>
-</ButtonGroup>
+</Button.Group>
 
-<ButtonGroup direction="ver" rounded>
+<Button.Group direction="ver" rounded>
   <Button>富强</Button>
   <Button type="primary">民主</Button>
   <Button type="secondary">文明</Button>
   <Button>和谐</Button>
-</ButtonGroup>
+</Button.Group>
 
 ```tsx copy
 import { Button } from "mmixel-ui"
 
 export default function App() {
   return (
-    <ButtonGroup>
+    <Button.Group>
       <Button>富强</Button>
       <Button type="primary">民主</Button>
       <Button type="secondary">文明</Button>
       <Button>和谐</Button>
-    </ButtonGroup>
+    </Button.Group>
 
-    <ButtonGroup direction="ver" rounded>
+    <Button.Group direction="ver" rounded>
       <Button>富强</Button>
       <Button type="primary">民主</Button>
       <Button type="secondary">文明</Button>
       <Button>和谐</Button>
-    </ButtonGroup>
+    </Button.Group>
   )
 }
 ```
@@ -265,7 +263,7 @@ export default function App() {
 | loading  | `boolean`                                          | `false`     | 加载状态   |
 | icon     | `ReactNode`                                        | `undefined` | 图标       |
 
-### ButtonGroup Props
+### Button.Group Props
 
 | Prop      | Type             | Default | Desc           |
 | :-------- | :--------------- | :------ | :------------- |

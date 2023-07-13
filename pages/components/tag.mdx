@@ -1,4 +1,4 @@
-import Tag from "../../components/Tag"
+import { Tag } from "../../components"
 
 # 标签 Tag
 
@@ -8,7 +8,7 @@ import Tag from "../../components/Tag"
 
 使用 `size` 调整大小
 
-<br/>
+<br />
 
 <Tag size="sm">子鼠</Tag>
 <Tag size="sm">丑牛</Tag>
@@ -48,7 +48,7 @@ export default function App() {
 
 使用 `rounded` 调整形状
 
-<br/>
+<br />
 
 <Tag rounded>我超</Tag>
 <Tag rounded>圆！</Tag>
@@ -68,11 +68,29 @@ export default function App() {
 
 标签可以关掉
 
-<br/>
+<br />
 
-<Tag closeable onClose={()=>{console.log("关掉了")}}>关掉！</Tag>
-<Tag closeable onClose={()=>{console.log("关掉了")}}>关掉！</Tag>
-<Tag closeable onClose={()=>{console.log("关掉了")}}>一定要关掉！</Tag>
+<Tag
+  closeable
+  onClose={() => {
+    console.log("关掉了")
+  }}>
+  关掉！
+</Tag>
+<Tag
+  closeable
+  onClose={() => {
+    console.log("关掉了")
+  }}>
+  关掉！
+</Tag>
+<Tag
+  closeable
+  onClose={() => {
+    console.log("关掉了")
+  }}>
+  一定要关掉！
+</Tag>
 
 ```tsx copy
 import { Tag } from "mmixel-ui"
@@ -90,7 +108,7 @@ export default function App() {
 
 标签可使用所有 `span` 的属性
 
-<br/>
+<br />
 
 <Tag className="bg-yellow-500/25 border-yellow-500 text-yellow-500">红色</Tag>
 <Tag className="bg-red-500/25 border-red-500 text-red-500">蓝色</Tag>

@@ -1,15 +1,14 @@
-import Title from "../../components/Title"
-import BigTitle from "../../components/BigTitle"
+import { Title, BigTitle } from "../../components"
 
 # 标题 Title
 
-做这个只是因为我不知道什么大小应该用h几
+做这个只是因为我不知道什么大小应该用 h 几
 
 ### 大小
 
 使用 `size` 调整大小
 
-<br/>
+<br />
 
 <Title size="ty">小小</Title>
 <Title size="sm">小</Title>
@@ -21,13 +20,15 @@ import BigTitle from "../../components/BigTitle"
 import { Title } from "mmixel-ui"
 
 export default function App() {
-  return (<>
-    <Title size="ty">小小</Title>
-    <Title size="sm">小</Title>
-    <Title>不小</Title>
-    <Title size="lg">大</Title>
-    <Title size="xl">大大</Title>
-  </>)
+  return (
+    <>
+      <Title size="ty">小小</Title>
+      <Title size="sm">小</Title>
+      <Title>不小</Title>
+      <Title size="lg">大</Title>
+      <Title size="xl">大大</Title>
+    </>
+  )
 }
 ```
 
@@ -35,7 +36,7 @@ export default function App() {
 
 为什么是这样的名字
 
-<br/>
+<br />
 
 <BigTitle title={["头号", "玩家"]} />
 
@@ -43,23 +44,27 @@ export default function App() {
 
 <BigTitle
   title={["假面", "骑士"]}
-  titleColor={["#ff479f","#92f60f"]}
-  blurColor={["#83e701", "#ff479f"]}/>
+  titleColor={["#ff479f", "#92f60f"]}
+  blurColor={["#83e701", "#ff479f"]}
+/>
 
 ```tsx copy
 import { Title } from "mmixel-ui"
 
 export default function App() {
-  return (<>
-    <BigTitle title={["头号", "玩家"]} />
-    <div className="my-24" />
-    <BigTitle
-      title={["假面", "骑士"]}
-      titleColor={["#ff479f","#92f60f"]}
-      blurColor={["#83e701", "#ff479f"]}/>
-  </>)
+  return (
+    <>
+      <BigTitle title={["头号", "玩家"]} />
+      <div className="my-24" />
+      <BigTitle
+        title={["假面", "骑士"]}
+        titleColor={["#ff479f", "#92f60f"]}
+        blurColor={["#83e701", "#ff479f"]}
+      />
+    </>
+  )
 }
-```  
+```
 
 ### Title Props
 

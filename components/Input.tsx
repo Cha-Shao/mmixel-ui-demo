@@ -12,7 +12,7 @@ import {
   useState,
   ReactNode
 } from "react"
-import { EyeClosed, EyeOpen, Icon } from "./Icons"
+import Icon, { EyeClosed, EyeOpen } from "./Icons"
 
 type InputType = | "text" | "password"
 interface Props extends Omit<HTMLAttributes<HTMLDivElement>, "prefix" | "suffix"> {

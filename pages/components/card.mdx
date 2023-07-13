@@ -1,22 +1,19 @@
-import Card from "../../components/Card"
-import Avatar from "../../components/Avatar"
-import Title from "../../components/Title"
+import { Avatar, Title, Card } from "../../components"
 export const NoTitle = () => {
   return (
     <div className="p-6 bg-slate-200 dark:bg-zinc-800 grid gap-6 rounded-md">
-      <Card>
-        我的头在哪里
-      </Card>
-      <Card title={
-        <div className="flex items-center p-6 pb-0">
-          <Avatar src="/avatar/exusiai.png" className="mr-2" />
-          <Title>能天使</Title>
-        </div>
-      }>
+      <Card>我的头在哪里</Card>
+      <Card
+        title={
+          <div className="flex items-center p-6 pb-0">
+            <Avatar src="/avatar/exusiai.png" className="mr-2" />
+            <Title>能天使</Title>
+          </div>
+        }>
         奖励自己今天可以多吃一块苹果派
       </Card>
     </div>
-    )
+  )
 }
 
 # 卡片 Card
@@ -27,15 +24,13 @@ export const NoTitle = () => {
 
 使用 `size` 调整大小
 
-<br/>
+<br />
 
 <div className="p-6 bg-slate-200 dark:bg-zinc-800 grid gap-6 rounded-md">
   <Card title="小卡片" size="sm">
     Never gonna give you up
   </Card>
-  <Card title="卡片">
-    Never gonna let you down
-  </Card>
+  <Card title="卡片">Never gonna let you down</Card>
   <Card title="大卡片" size="lg">
     Never gonna run around and desert you
   </Card>
@@ -63,7 +58,7 @@ export default function App() {
 
 喜欢有边界感的卡片
 
-<br/>
+<br />
 
 <Card title="一个卡片" bordered>
   Never gonna give you up
@@ -85,7 +80,7 @@ export default function App() {
 
 使用 `shadow` 让卡片投射阴影
 
-<br/>
+<br />
 
 <div className="p-6 bg-slate-200 dark:bg-zinc-800 rounded-md">
   <Card title="一个卡片" shadow>
@@ -111,7 +106,7 @@ export default function App() {
 
 或者在标题写入组件
 
-<br/>
+<br />
 
 <NoTitle />
 
@@ -139,7 +134,7 @@ export default function App() {
 
 如果你想把卡片放在 Modal 上时...
 
-<br/>
+<br />
 
 <Card title="请查看" bordered closeable>
   看看你的
@@ -150,11 +145,13 @@ import { Card } from "mmixel-ui"
 
 export default function App() {
   return (
-    <Card 
+    <Card
       title="请查看"
-      bordered 
+      bordered
       closeable
-      onClose={()=>{ /** TO DO */ }}>
+      onClose={() => {
+        /** TO DO */
+      }}>
       看看你的
     </Card>
   )
@@ -165,7 +162,7 @@ export default function App() {
 
 打个脚先
 
-<br/>
+<br />
 
 <Card title="头" footer={<span>脚</span>} bordered>
   身子

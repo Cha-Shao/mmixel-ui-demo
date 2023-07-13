@@ -1,6 +1,6 @@
 import classNames from "classnames"
 import { ChangeEvent, Dispatch, ForwardedRef, HTMLAttributes, PropsWithChildren, SetStateAction, forwardRef } from "react"
-import { Check, Icon } from "./Icons"
+import Icon, { Check } from "./Icons"
 
 interface Props extends
   PropsWithChildren,
