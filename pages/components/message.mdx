@@ -5,7 +5,7 @@ import Image from "next/image"
 export const MessageDefault = () => {
   const message = useContext(messageContext)
   return (
-    <>
+    <Button.Group>
       <Button
         onClick={() => {
           message("普通消息")
@@ -36,7 +36,7 @@ export const MessageDefault = () => {
         }}>
         加载消息
       </Button>
-    </>
+    </Button.Group>
   )
 }
 export const MessageCustom = () => {
@@ -44,7 +44,9 @@ export const MessageCustom = () => {
   return (
     <Button
       onClick={() => {
-        message.custom(<Image src="/avatar/rick_astley.jpg" alt="" width={48} height={48} />)
+        message.custom(
+          <Image src="/avatar/rick_astley.jpg" alt="" width={48} height={48} />
+        )
       }}>
       自定义消息
     </Button>
@@ -59,14 +61,83 @@ export const MessageCustom = () => {
 
 发一条信息
 
-<br/>
+<br />
 
 <MessageDefault />
+
+```tsx copy
+import { Button, messageContext } from "../../components"
+import { useContext } from "react"
+
+export const MessageDefault = () => {
+  const message = useContext(messageContext)
+  return (
+    <Button.Group>
+      <Button
+        onClick={() => {
+          message("普通消息")
+        }}>
+        普通消息
+      </Button>
+      <Button
+        onClick={() => {
+          message.success("成功消息")
+        }}>
+        成功消息
+      </Button>
+      <Button
+        onClick={() => {
+          message.warning("警告消息")
+        }}>
+        警告消息
+      </Button>
+      <Button
+        onClick={() => {
+          message.error("错误消息")
+        }}>
+        错误消息
+      </Button>
+      <Button
+        onClick={() => {
+          message.loading("加载消息")
+        }}>
+        加载消息
+      </Button>
+    </Button.Group>
+  )
+}
+```
 
 ### 自定义
 
 想发什么发什么
 
-<br/>
+<br />
 
 <MessageCustom />
+
+```tsx copy
+import { Button, messageContext } from "../../components"
+import { useContext } from "react"
+import Image from "next/image"
+
+export const MessageCustom = () => {
+  const message = useContext(messageContext)
+  return (
+    <Button
+      onClick={() => {
+        message.custom(
+          <Image src="/avatar/rick_astley.jpg" alt="" width={48} height={48} />
+        )
+      }}>
+      自定义消息
+    </Button>
+  )
+}
+```
+
+### Message Props
+
+| Prop     | Type     | Default | Desc                  |
+| :------- | :------- | :------ | :-------------------- |
+| interval | `number` | `7000`  | 消息持续时间(ms) |

@@ -1,5 +1,5 @@
 import {
-  ReactNode,
+  PropsWithChildren,
   createContext,
   useMemo,
   useState
@@ -23,10 +23,14 @@ interface MessageFunction {
   error: (content: string) => void
   loading: (content: string) => void
   custom: (content: string) => void
-  remove: () => void
 }
 
-export const MessageProvider = ({ children }: { children: ReactNode }) => {
+export const MessageProvider = (props: PropsWithChildren & {
+  interval?: number
+}) => {
+  const {
+    interval = 7000
+  } = props
   const [messages, setMessages] = useState<Message[]>([])
 
   const messageHandler = (type: MessageType) => (content: string) => {
@@ -35,6 +39,12 @@ export const MessageProvider = ({ children }: { children: ReactNode }) => {
       type,
       content,
     }])
+    setTimeout(() => {
+      setMessages(prevMessages => {
+        prevMessages.shift()
+        return [...prevMessages]
+      })
+    }, interval)
   }
 
   const message: MessageFunction = (content: string) => messageHandler("default")(content)
@@ -43,12 +53,6 @@ export const MessageProvider = ({ children }: { children: ReactNode }) => {
   message.error = messageHandler("error")
   message.loading = messageHandler("loading")
   message.custom = messageHandler("custom")
-  message.remove = () => {
-    setMessages(prevMessages => {
-      prevMessages.shift()
-      return [...prevMessages]
-    })
-  }
 
   const context = useMemo(() => (
     message
@@ -63,7 +67,7 @@ export const MessageProvider = ({ children }: { children: ReactNode }) => {
           ))}
         </AnimatePresence>
       </div>
-      {children}
+      {props.children}
     </messageContext.Provider>
   )
 }

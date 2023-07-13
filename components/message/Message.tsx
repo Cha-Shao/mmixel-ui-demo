@@ -1,8 +1,7 @@
 import classNames from "classnames"
-import { MessageType, messageContext } from "./MessageProvider"
+import { MessageType } from "./MessageProvider"
 import { motion } from "framer-motion"
 import Icon, { Error, Info, Loading, Success, Warning } from "../Icons"
-import { useContext, useEffect } from "react"
 
 export interface Props {
   id: number
@@ -22,13 +21,6 @@ const parseIcon = (type: MessageType) => {
 }
 
 const Message = (props: Props) => {
-  const message = useContext(messageContext)
-  useEffect(() => {
-    setTimeout(() => {
-      message?.remove()
-    }, 7000)
-  }, [])
-
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
