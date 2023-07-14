@@ -93,6 +93,7 @@ const Button = forwardRef(function Button(
         // 默认
         "duration-150",
         "inline-flex justify-center items-center",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#ff8729]",
       )}
       onClick={props.onClick} >
 

@@ -5,6 +5,11 @@ const config: DocsThemeConfig = {
   project: {
     link: "https://github.com/Cha-Shao/mmixel-ui-demo"
   },
+  useNextSeoProps(){
+    return{
+      titleTemplate: "%s - MMixel UI",
+    }
+  },
   docsRepositoryBase: "https://github.com/Cha-Shao/mmixel-ui-demo",
   footer: {
     text: "MMixel UI @1.0.0 - Created by Cha_Shao"

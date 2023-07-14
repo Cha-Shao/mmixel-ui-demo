@@ -41,15 +41,15 @@ import { Card } from "mmixel-ui"
 
 export default function App() {
   return (
-    <Card title="小卡片" size="sm">
-      Never gonna give you up
-    </Card>
-    <Card title="卡片">
-      Never gonna let you down
-    </Card>
-    <Card title="大卡片" size="lg">
-      Never gonna run around and desert you
-    </Card>
+    <>
+      <Card title="小卡片" size="sm">
+        Never gonna give you up
+      </Card>
+      <Card title="卡片">Never gonna let you down</Card>
+      <Card title="大卡片" size="lg">
+        Never gonna run around and desert you
+      </Card>
+    </>
   )
 }
 ```
@@ -115,17 +115,18 @@ import { Card, Avatar, Title } from "mmixel-ui"
 
 export default function App() {
   return (
-    <Card className="mb-6">
-      我的头在哪里
-    </Card>
-    <Card title={
-      <div className="flex items-center p-6 pb-0">
-        <Avatar src="/exusiai.png" className="mr-2" />
-        <Title>能天使</Title>
-      </div>
-    }>
-      奖励自己今天可以多吃一块苹果派
-    </Card>
+    <>
+      <Card className="mb-6">我的头在哪里</Card>
+      <Card
+        title={
+          <div className="flex items-center p-6 pb-0">
+            <Avatar src="/exusiai.png" className="mr-2" />
+            <Title>能天使</Title>
+          </div>
+        }>
+        奖励自己今天可以多吃一块苹果派
+      </Card>
+    </>
   )
 }
 ```

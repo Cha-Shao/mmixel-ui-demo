@@ -4,7 +4,6 @@ import {
   ForwardedRef,
   HTMLAttributes,
   PropsWithChildren,
-  ReactElement,
   forwardRef,
   useState
 } from "react"
@@ -12,7 +11,6 @@ import {
 interface Props extends
   PropsWithChildren,
   HTMLAttributes<HTMLDivElement> {
-  trigger: ReactElement
   content: string
   rounded?: boolean
   backgroundColor?: string

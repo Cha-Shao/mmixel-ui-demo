@@ -66,11 +66,13 @@ import { Avatar } from "mmixel-ui"
 
 export default function App() {
   return (
-    <Avatar size="ty" src="/avatar/avatar.png" />
-    <Avatar size="sm" text="Dusk" />
-    <Avatar src="/avatar/avatar.png" />
-    <Avatar size="lg" text="Dusk" />
-    <Avatar size="xl" src="/avatar/avatar.png" />
+    <>
+      <Avatar size="ty" src="/avatar/avatar.png" />
+      <Avatar size="sm" text="Dusk" />
+      <Avatar src="/avatar/avatar.png" />
+      <Avatar size="lg" text="Dusk" />
+      <Avatar size="xl" src="/avatar/avatar.png" />
+    </>
   )
 }
 ```
@@ -89,8 +91,10 @@ import { Avatar } from "mmixel-ui"
 
 export default function App() {
   return (
-    <Avatar src="/avatar/avatar.png" />
-    <Avatar rounded src="/avatar/avatar.png" />
+    <>
+      <Avatar src="/avatar/avatar.png" />
+      <Avatar rounded src="/avatar/avatar.png" />
+    </>
   )
 }
 ```
@@ -110,8 +114,10 @@ import { Avatar } from "mmixel-ui"
 
 export default function App() {
   return (
-    <Avatar src="/avatar/avatar.png" bordered className="mr-2"/>
-    <Avatar src="/avatar/avatar.png" bordered rounded/>
+    <>
+      <Avatar src="/avatar/avatar.png" bordered className="mr-2" />
+      <Avatar src="/avatar/avatar.png" bordered borderColor="#00b3bb" rounded />
+    </>
   )
 }
 ```
@@ -132,9 +138,11 @@ import { Avatar } from "mmixel-ui"
 
 export default function App() {
   return (
-    <Avatar size="xl" text="Exusiai" textColor="crimson" />
-    <Avatar size="xl" backgroundColor="#ef8923" src="/avatar/exusiai.png" />
-    <Avatar size="xl" backgroundColor="#313131" src="/avatar/exusiai.png" />
+    <>
+      <Avatar size="xl" text="Exusiai" textColor="crimson" />
+      <Avatar size="xl" backgroundColor="#ef8923" src="/avatar/exusiai.png" />
+      <Avatar size="xl" backgroundColor="#313131" src="/avatar/exusiai.png" />
+    </>
   )
 }
 ```
@@ -231,8 +239,10 @@ import { Avatar } from "mmixel-ui"
 
 export default function App() {
   return (
-    <Avatar src="/avatar/avatar.png" />
-    <Avatar lazy={false} src="/avatar/avatar.png" />
+    <>
+      <Avatar src="/avatar/avatar.png" />
+      <Avatar lazy={false} src="/avatar/avatar.png" />
+    </>
   )
 }
 ```

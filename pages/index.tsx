@@ -2,14 +2,9 @@ import Link from "next/link"
 import Button from "../components/button/Button"
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import Card from "../components/card/Card"
-import Carousel from "../components/carousel/Carousel"
-import Image from "next/image"
-import { Metadata } from "next"
-
-export const metadata: Metadata = {
-  title: "MMixel UI",
-  description: "An UI library for react."
-}
+import { Tooltip } from "../components"
+import { useState } from "react"
+import Head from "next/head"
 
 const TailwindCSSLink = () => {
   return (
@@ -61,8 +56,20 @@ const images = [
 ]
 
 export default function Page() {
+  const [copied, setCopied] = useState(false)
+
+  const handleCopy = () => {
+    setCopied(true)
+    setTimeout(() => {
+      setCopied(false)
+    }, 7000)
+  }
+
   return (
     <main className="min-w-[1024px] relative overflow-hidden bg-[#f0f0f6]">
+      <Head>
+        <title>MMixel UI</title>
+      </Head>
       <div className="absolute -top-[50vh] -right-[50vw] -rotate-12 bg-[#ff8729] h-[100vh] w-[100vw] rounded-[7rem]" />
       <div className="max-w-screen-2xl m-auto">
         <div className="relative h-[80vh] flex items-center">
@@ -79,9 +86,11 @@ export default function Page() {
               <Link href="/components/avatar" className="mr-2">
                 <Button size="xl">浏览组件</Button>
               </Link>
-              <CopyToClipboard text="pnpm i -D mmixel-ui">
-                <Button size="xl" className="bg-white/50">$ pnpm i -D mmixel-ui</Button>
-              </CopyToClipboard>
+              <Tooltip content={copied ? "已复制！" : "点击复制"} className="inline-block">
+                <CopyToClipboard text="pnpm i -D mmixel-ui">
+                  <Button size="xl" className="bg-white/50" onClick={handleCopy}>$ pnpm i -D mmixel-ui</Button>
+                </CopyToClipboard>
+              </Tooltip>
             </div>
           </div>
           <div className="w-1/2"></div>
@@ -92,17 +101,6 @@ export default function Page() {
               {card.content}
             </Card>
           ))}
-        </div>
-        <div className="relative">
-          <Carousel autoplay>
-            {images.map((image, i) => (
-              <Image
-                key={i}
-                src={`/carousel${image}`}
-                className="w-full object-cover" alt=""
-                width={1280} height={720} />
-            ))}
-          </Carousel>
         </div>
       </div>
     </main>
