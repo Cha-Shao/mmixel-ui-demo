@@ -5,7 +5,8 @@ import {
   PropsWithChildren,
   forwardRef
 } from "react"
-import { FullSize } from "./types"
+import { FullSize } from "../types"
+import StyledTitle from "./StyledTitle"
 
 interface Props extends
   PropsWithChildren,
@@ -31,4 +32,8 @@ const Title = forwardRef(function Title(
   }
 })
 
-export default Title
+type TitleComponent = typeof Title & {
+  Styled: typeof StyledTitle
+}
+
+export default Title as TitleComponent

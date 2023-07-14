@@ -1,4 +1,4 @@
-import { Title, BigTitle } from "../../components"
+import { Title } from "../../components"
 
 # 标题 Title
 
@@ -38,11 +38,11 @@ export default function App() {
 
 <br />
 
-<BigTitle title={["头号", "玩家"]} />
+<Title.Styled title={["头号", "玩家"]} />
 
 <div className="my-24" />
 
-<BigTitle
+<Title.Styled
   title={["假面", "骑士"]}
   titleColor={["#ff479f", "#92f60f"]}
   blurColor={["#83e701", "#ff479f"]}
@@ -54,9 +54,9 @@ import { Title } from "mmixel-ui"
 export default function App() {
   return (
     <>
-      <BigTitle title={["头号", "玩家"]} />
+      <Title.Styled title={["头号", "玩家"]} />
       <div className="my-24" />
-      <BigTitle
+      <Title.Styled
         title={["假面", "骑士"]}
         titleColor={["#ff479f", "#92f60f"]}
         blurColor={["#83e701", "#ff479f"]}
@@ -72,7 +72,7 @@ export default function App() {
 | :--- | :------------------------------------- | :------ | :--------- |
 | size | `"ty" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"`  | 标题的大小 |
 
-### BigTitle Props
+### Title.Styled Props
 
 | Prop       | Type               | Default                  | Desc         |
 | :--------- | :----------------- | :----------------------- | :----------- |

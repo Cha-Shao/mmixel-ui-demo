@@ -1,6 +1,7 @@
 import classNames from "classnames"
 import { ForwardedRef, HTMLAttributes, PropsWithChildren, forwardRef } from "react"
-import { Size } from "./types"
+import { Size } from "../types"
+import Icon, { Close } from "../Icons"
 
 interface Props extends
   PropsWithChildren,
@@ -9,10 +10,6 @@ interface Props extends
   rounded?: boolean
   closeable?: boolean
   onClose?: () => void
-}
-
-const CloseIcon = (props: HTMLAttributes<SVGSVGElement>) => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" {...props}><path fill="currentColor" d="m12 10.586l4.95-4.95l1.415 1.415l-4.95 4.95l4.95 4.95l-1.415 1.414l-4.95-4.95l-4.95 4.95l-1.413-1.415l4.95-4.95l-4.95-4.95L7.05 5.638l4.95 4.95Z" /></svg>
 }
 
 const Tag = forwardRef(function Tag(
@@ -34,11 +31,7 @@ const Tag = forwardRef(function Tag(
         { "h-9 text-lg px-2": size === "lg" },
       )}>
       {props.children}
-      {props.closeable && (
-        <CloseIcon
-          className="m-tag-close cursor-pointer"
-          style={{ width: 18 }}
-          onClick={props.onClose} />)}
+      {props.closeable && <Icon icon={Close} className="m-tag-close cursor-pointer" />}
     </span>
   )
 })

@@ -14,7 +14,7 @@ export interface Message {
   content: string
 }
 
-export const messageContext = createContext<MessageFunction | null>(null);
+export const messageContext = createContext<MessageFunction | null>(null)
 
 interface MessageFunction {
   (content: string): void

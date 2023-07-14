@@ -7,7 +7,7 @@ import {
   isValidElement
 } from "react"
 import classNames from "classnames"
-import { FullSize } from "./types"
+import { FullSize } from "../types"
 import Avatar from "./Avatar"
 
 interface Props extends PropsWithChildren {

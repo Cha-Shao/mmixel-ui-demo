@@ -1,28 +1,21 @@
-import Avatar from "./Avatar"
-import AvatarGroup from "./AvatarGroup"
-import BigTitle from "./BigTitle"
-import Button from "./Button"
-import ButtonGroup from "./ButtonGroup"
-import Card from "./Card"
-import Carousel from "./Carousel"
-import Checkbox from "./Checkbox"
-import Collapse from "./Collapse"
-import Dropdown from "./Dropdown"
-import { MessageProvider, messageContext } from "./message/MessageProvider"
-import Input from "./Input"
-import Radio from "./Radio"
-import Switch from "./Switch"
-import Tag from "./Tag"
-import Title from "./Title"
-import Tooltip from "./Tooltip"
-import Upload from "./Upload"
-
-Avatar.Group = AvatarGroup
-Button.Group = ButtonGroup
+import Avatar from "./avatar"
+import Button from "./button"
+import Card from "./card"
+import Carousel from "./carousel"
+import Checkbox from "./checkbox"
+import Collapse from "./collapse"
+import Dropdown from "./dropdown"
+import MessageProvider, { messageContext } from "./message"
+import Input from "./input"
+import Radio from "./radio"
+import Switch from "./switch"
+import Tag from "./tag"
+import Title from "./title"
+import Tooltip from "./tooltip"
+import Upload from "./upload"
 
 export {
   Avatar,
-  BigTitle,
   Button,
   Card,
   Carousel,

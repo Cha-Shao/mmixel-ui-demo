@@ -6,9 +6,9 @@ import {
   ReactNode,
   forwardRef
 } from "react"
-import { Size } from "./types"
-import Title from "./Title"
-import Icon, { Close } from "./Icons"
+import { Size } from "../types"
+import Title from "../title/Title"
+import Icon, { Close } from "../Icons"
 
 interface Props extends
   PropsWithChildren,

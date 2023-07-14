@@ -1,8 +1,8 @@
 import Link from "next/link"
-import Button from "../components/Button"
+import Button from "../components/button/Button"
 import { CopyToClipboard } from 'react-copy-to-clipboard'
-import Card from "../components/Card"
-import Carousel from "../components/Carousel"
+import Card from "../components/card/Card"
+import Carousel from "../components/carousel/Carousel"
 import Image from "next/image"
 import { Metadata } from "next"
 

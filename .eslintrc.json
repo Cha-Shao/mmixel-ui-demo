@@ -1,5 +1,11 @@
 {
-    "rules":{
-        "semi": ["warn", "never"]
+    "extends": "next",
+    "rules": {
+        "semi": [
+            "warn",
+            "never"
+        ],
+        "react/no-unescaped-entities": "off",
+        "@next/next/no-page-custom-font": "off"
     }
 }

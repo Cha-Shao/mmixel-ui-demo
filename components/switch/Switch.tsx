@@ -7,7 +7,7 @@ import {
   SetStateAction,
   forwardRef
 } from "react"
-import { Size } from "./types"
+import { Size } from "../types"
 
 interface Props extends Omit<HTMLAttributes<HTMLLabelElement>, "onChange"> {
   value: boolean

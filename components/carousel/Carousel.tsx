@@ -13,8 +13,8 @@ import {
   useRef,
   useState
 } from "react"
-import Button from "./Button"
-import Icon, { LeftArrow, RightArrow } from "./Icons"
+import Button from "../button/Button"
+import Icon, { LeftArrow, RightArrow } from "../Icons"
 
 interface Props extends
   PropsWithChildren,

@@ -7,7 +7,7 @@ import {
   forwardRef
 } from "react"
 import classNames from "classnames"
-import { FullSize } from "./types"
+import { FullSize } from "../types"
 import ButtonGroup from "./ButtonGroup"
 
 interface Props extends

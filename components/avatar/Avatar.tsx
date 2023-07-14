@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { FullSize } from "./types"
+import { FullSize } from "../types"
 import classNames from "classnames"
 import {
   ForwardedRef,

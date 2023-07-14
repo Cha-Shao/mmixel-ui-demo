@@ -12,7 +12,7 @@ interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
   blurColor?: [string, string]
 }
 
-const BigTitle = forwardRef(function BigTitle(
+const StyledTitle = forwardRef(function StyledTitle(
   props: Props,
   ref: ForwardedRef<HTMLDivElement>
 ) {
@@ -58,4 +58,4 @@ const BigTitle = forwardRef(function BigTitle(
   )
 })
 
-export default BigTitle
+export default StyledTitle
