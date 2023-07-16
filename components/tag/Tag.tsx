@@ -1,7 +1,7 @@
 import classNames from "classnames"
 import { ForwardedRef, HTMLAttributes, PropsWithChildren, forwardRef } from "react"
 import { Size } from "../types"
-import Icon, { Close } from "../Icons"
+import Icon, { Close } from "../icon/Icon"
 
 interface Props extends
   PropsWithChildren,

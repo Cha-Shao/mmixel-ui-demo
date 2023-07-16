@@ -5,6 +5,7 @@ import Carousel from "./carousel"
 import Checkbox from "./checkbox"
 import Collapse from "./collapse"
 import Dropdown from "./dropdown"
+import Icon from "./icon"
 import MessageProvider, { messageContext } from "./message"
 import Input from "./input"
 import Radio from "./radio"
@@ -22,6 +23,7 @@ export {
   Checkbox,
   Collapse,
   Dropdown,
+  Icon,
   Input,
   MessageProvider,
   messageContext,

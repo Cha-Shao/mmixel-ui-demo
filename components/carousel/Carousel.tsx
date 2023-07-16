@@ -14,7 +14,7 @@ import {
   useState
 } from "react"
 import Button from "../button/Button"
-import Icon, { LeftArrow, RightArrow } from "../Icons"
+import Icon, { LeftArrow, RightArrow } from "../icon/Icon"
 
 interface Props extends
   PropsWithChildren,

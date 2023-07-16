@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { FullSize } from "../types"
 import classNames from "classnames"
 import {
@@ -59,11 +58,8 @@ const Avatar = forwardRef(function Avatar(
         outlineColor: props.borderColor || "#ff8729"
       }}>
       {props.src ? (
-        <Image src={props.src} alt={props.alt || ""}
-          width={128} height={128}
-          loading={lazy ? "lazy" : "eager"}
-          className="m-avatar-image object-cover w-full h-full"
-          onError={props.onError} />
+        <img src={props.src} alt={props.alt} loading={lazy ? "lazy" : "eager"}
+          className="m-avatar-image object-cover w-full h-full" onError={props.onError} />
       ) : (
         <div className="m-avatar-text-container w-full h-full flex justify-center items-center overflow-hidden">
           <span className="m-avatar-text" style={{

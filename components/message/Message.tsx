@@ -1,7 +1,7 @@
 import classNames from "classnames"
 import { MessageType } from "./MessageProvider"
 import { motion } from "framer-motion"
-import Icon, { Error, Info, Loading, Success, Warning } from "../Icons"
+import Icon, { Error, Info, Loading, Success, Warning } from "../icon/Icon"
 
 export interface Props {
   id: number
